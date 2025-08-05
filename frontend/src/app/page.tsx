@@ -30,37 +30,37 @@ const features = [
     icon: DocumentTextIcon,
     title: 'Smart Invoicing',
     description: 'Create, send, and track professional invoices with automated payment reminders.',
-    color: 'bg-blue-500'
+    color: 'bg-slate-600'
   },
   {
     icon: ChartBarIcon,
     title: 'Expense Tracking',
     description: 'Automatically categorize and track business expenses with receipt scanning.',
-    color: 'bg-green-500'
+    color: 'bg-emerald-600'
   },
   {
     icon: BanknotesIcon,
     title: 'Digital Wallets',
     description: 'Manage multiple business accounts and track cash flow in real-time.',
-    color: 'bg-purple-500'
+    color: 'bg-amber-600'
   },
   {
     icon: CreditCardIcon,
     title: 'Payment Processing',
     description: 'Accept payments globally with support for multiple currencies and payment methods.',
-    color: 'bg-orange-500'
+    color: 'bg-blue-600'
   },
   {
     icon: ShieldCheckIcon,
     title: 'Tax Reporting',
     description: 'Automated tax calculations and compliance reporting for multiple jurisdictions.',
-    color: 'bg-red-500'
+    color: 'bg-indigo-600'
   },
   {
     icon: GlobeAltIcon,
     title: 'Credit & Lending',
     description: 'Build business credit scores and access financing opportunities.',
-    color: 'bg-indigo-500'
+    color: 'bg-teal-600'
   }
 ];
 
@@ -157,22 +157,22 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+      <nav className="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">SMB Finance OS</h1>
+                <h1 className="text-2xl font-bold text-slate-900">SMB Finance OS</h1>
               </div>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#features" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Features</a>
-                <a href="#pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
-                <a href="#testimonials" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                <a href="#features" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
+                <a href="#pricing" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pricing</a>
+                <a href="#testimonials" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Testimonials</a>
+                <button className="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm">
                   Sign In
                 </button>
               </div>
@@ -190,11 +190,11 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
                 The Financial Operating System for
-                <span className="text-blue-600"> Global SMBs</span>
+                <span className="text-slate-800"> Global SMBs</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
                 Streamline your business finances with our comprehensive platform. From invoicing to lending, 
                 we provide everything SMBs need to thrive in emerging markets.
               </p>
@@ -207,10 +207,10 @@ export default function Home() {
                       {...register('email')}
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-600 focus:border-transparent transition duration-200 bg-white/80 backdrop-blur-sm"
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                      <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
                     )}
                   </div>
                   <div>
@@ -218,16 +218,16 @@ export default function Home() {
                       {...register('businessName')}
                       type="text"
                       placeholder="Business name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-600 focus:border-transparent transition duration-200 bg-white/80 backdrop-blur-sm"
                     />
                     {errors.businessName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.businessName.message}</p>
+                      <p className="text-red-600 text-sm mt-1">{errors.businessName.message}</p>
                     )}
                   </div>
                   <div>
                     <select
                       {...register('industry')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-600 focus:border-transparent transition duration-200 bg-white/80 backdrop-blur-sm"
                     >
                       <option value="">Select your industry</option>
                       <option value="technology">Technology</option>
@@ -238,19 +238,19 @@ export default function Home() {
                       <option value="other">Other</option>
                     </select>
                     {errors.industry && (
-                      <p className="text-red-500 text-sm mt-1">{errors.industry.message}</p>
+                      <p className="text-red-600 text-sm mt-1">{errors.industry.message}</p>
                     )}
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center"
+                    className="w-full bg-slate-800 hover:bg-slate-900 disabled:bg-slate-400 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center shadow-lg"
                   >
                     {isSubmitting ? 'Signing up...' : 'Start Free Trial'}
                     <ArrowRightIcon className="ml-2 h-5 w-5" />
                   </button>
                 </form>
-                <p className="text-sm text-gray-500 mt-3">
+                <p className="text-sm text-slate-500 mt-3">
                   No credit card required • 14-day free trial
                 </p>
               </div>
@@ -263,10 +263,10 @@ export default function Home() {
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
               Everything Your Business Needs
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               From invoicing to lending, we provide a complete financial operating system 
               designed specifically for small and medium businesses in emerging markets.
             </p>
@@ -279,13 +279,13 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-slate-100"
               >
-                <div className={`inline-flex p-3 rounded-lg ${feature.color} text-white mb-4`}>
+                <div className={`inline-flex p-3 rounded-lg ${feature.color} text-white mb-4 shadow-md`}>
                   <feature.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">{feature.title}</h3>
+                <p className="text-slate-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -293,13 +293,13 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gray-50">
+      <section id="pricing" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
               Simple, Transparent Pricing
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-slate-600">
               Choose the plan that fits your business needs. All plans include our core features.
             </p>
           </div>
@@ -311,36 +311,36 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl shadow-lg p-8 ${
-                  plan.popular ? 'ring-2 ring-blue-500 scale-105' : ''
+                className={`relative bg-white rounded-2xl shadow-lg p-8 border border-slate-200 ${
+                  plan.popular ? 'ring-2 ring-amber-500 scale-105' : ''
                 }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-amber-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600">{plan.period}</span>
+                    <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
+                    <span className="text-slate-600">{plan.period}</span>
                   </div>
-                  <p className="text-gray-600 mb-6">{plan.description}</p>
+                  <p className="text-slate-600 mb-6">{plan.description}</p>
                   
                   <ul className="space-y-3 text-left">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-center">
-                        <CheckIcon className="h-5 w-5 text-green-500 mr-3" />
-                        <span className="text-gray-700">{feature}</span>
+                        <CheckIcon className="h-5 w-5 text-emerald-500 mr-3" />
+                        <span className="text-slate-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   
-                  <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200">
+                  <button className="w-full mt-8 bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md">
                     Get Started
                   </button>
                 </div>
@@ -354,10 +354,10 @@ export default function Home() {
       <section id="testimonials" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
               Trusted by Businesses Worldwide
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-slate-600">
               See what our customers say about SMB Finance OS
             </p>
           </div>
@@ -369,17 +369,17 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 p-6 rounded-xl"
+                className="bg-slate-50 p-6 rounded-xl border border-slate-200"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <StarIcon key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <StarIcon key={i} className="h-5 w-5 text-amber-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4">"{testimonial.content}"</p>
+                <p className="text-slate-700 mb-4">&ldquo;{testimonial.content}&rdquo;</p>
                 <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                  <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                  <p className="text-slate-600 text-sm">{testimonial.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -388,56 +388,56 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-4">
             Ready to Transform Your Business Finances?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-200 mb-8 max-w-2xl mx-auto">
             Join thousands of businesses that trust SMB Finance OS to manage their financial operations.
           </p>
-          <button className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition duration-200">
+          <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg">
             Start Your Free Trial
           </button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-slate-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">SMB Finance OS</h3>
-              <p className="text-gray-400">
+              <p className="text-slate-400">
                 The financial operating system for global small and medium businesses.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Features</a></li>
-                <li><a href="#" className="hover:text-white">Pricing</a></li>
-                <li><a href="#" className="hover:text-white">API</a></li>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">About</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
-                <li><a href="#" className="hover:text-white">Status</a></li>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
             <p>&copy; 2024 SMB Finance OS. All rights reserved.</p>
           </div>
         </div>
