@@ -1,37 +1,44 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const WalletScreen = () => {
   const wallets = [
     {
+      id: 'acc-001',
       name: 'Main Business Account',
       balance: 25430,
       currency: 'USD',
       type: 'checking',
+      accountNumber: '****1234',
     },
     {
+      id: 'acc-002',
       name: 'Savings Account',
       balance: 15000,
       currency: 'USD',
       type: 'savings',
+      accountNumber: '****5678',
     },
     {
+      id: 'acc-003',
       name: 'Tax Reserve',
       balance: 8500,
       currency: 'USD',
       type: 'reserve',
+      accountNumber: '****9012',
     },
   ];
 
-  const recentTransactions = [
+  const transactions = [
     {
       id: 'TXN-001',
       type: 'credit',
       amount: 2500,
       description: 'Invoice payment - TechStart',
       date: '2024-01-15',
+      account: 'Main Business Account',
     },
     {
       id: 'TXN-002',
@@ -39,6 +46,7 @@ const WalletScreen = () => {
       amount: 150,
       description: 'Office supplies',
       date: '2024-01-14',
+      account: 'Main Business Account',
     },
     {
       id: 'TXN-003',
@@ -46,91 +54,96 @@ const WalletScreen = () => {
       amount: 1800,
       description: 'Invoice payment - Green Energy',
       date: '2024-01-13',
+      account: 'Main Business Account',
     },
   ];
 
+  const renderWallet = ({ item }: { item: any }) => (
+    <TouchableOpacity style={styles.walletCard}>
+      <View style={styles.walletHeader}>
+        <View style={styles.walletInfo}>
+          <Text style={styles.walletName}>{item.name}</Text>
+          <Text style={styles.accountNumber}>{item.accountNumber}</Text>
+        </View>
+        <View style={styles.balanceContainer}>
+          <Text style={styles.balance}>${item.balance.toLocaleString()}</Text>
+          <Text style={styles.currency}>{item.currency}</Text>
+        </View>
+      </View>
+      <View style={styles.walletFooter}>
+        <Text style={styles.walletType}>{item.type.toUpperCase()}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  const renderTransaction = ({ item }: { item: any }) => (
+    <View style={styles.transactionItem}>
+      <View style={[styles.transactionIcon, { backgroundColor: item.type === 'credit' ? '#10b981' : '#ef4444' }]}>
+        <Ionicons 
+          name={item.type === 'credit' ? 'arrow-down' : 'arrow-up'} 
+          size={16} 
+          color="white" 
+        />
+      </View>
+      <View style={styles.transactionContent}>
+        <Text style={styles.transactionDescription}>{item.description}</Text>
+        <Text style={styles.transactionDate}>{item.date}</Text>
+      </View>
+      <View style={styles.transactionAmount}>
+        <Text style={[styles.amount, { color: item.type === 'credit' ? '#10b981' : '#ef4444' }]}>
+          {item.type === 'credit' ? '+' : '-'}${item.amount.toLocaleString()}
+        </Text>
+      </View>
+    </View>
+  );
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Total Balance */}
-        <View style={styles.balanceCard}>
+        <View style={styles.balanceHeader}>
           <Text style={styles.balanceLabel}>Total Balance</Text>
-          <Text style={styles.balanceAmount}>$48,930</Text>
-          <Text style={styles.balanceChange}>+$4,250 this month</Text>
+          <Text style={styles.totalBalance}>$48,930</Text>
+          <View style={styles.balanceChange}>
+            <Ionicons name="trending-up" size={16} color="#10b981" />
+            <Text style={styles.balanceChangeText}>+$4,250 (9.5%)</Text>
+          </View>
         </View>
 
         {/* Wallets */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Your Wallets</Text>
-          {wallets.map((wallet, index) => (
-            <TouchableOpacity key={index} style={styles.walletCard}>
-              <View style={styles.walletHeader}>
-                <View style={styles.walletInfo}>
-                  <Text style={styles.walletName}>{wallet.name}</Text>
-                  <Text style={styles.walletType}>{wallet.type}</Text>
-                </View>
-                <View style={styles.walletBalance}>
-                  <Text style={styles.balanceText}>${wallet.balance.toLocaleString()}</Text>
-                  <Text style={styles.currencyText}>{wallet.currency}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          ))}
+          <FlatList
+            data={wallets}
+            renderItem={renderWallet}
+            keyExtractor={(item) => item.id}
+            scrollEnabled={false}
+          />
         </View>
 
         {/* Quick Actions */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Quick Actions</Text>
-          <View style={styles.actionsGrid}>
-            <TouchableOpacity style={styles.actionCard}>
-              <View style={[styles.actionIcon, { backgroundColor: '#10b981' }]}>
-                <Ionicons name="add-circle" size={24} color="white" />
-              </View>
-              <Text style={styles.actionTitle}>Send Money</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.actionCard}>
-              <View style={[styles.actionIcon, { backgroundColor: '#3b82f6' }]}>
-                <Ionicons name="card" size={24} color="white" />
-              </View>
-              <Text style={styles.actionTitle}>Request Payment</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.actionCard}>
-              <View style={[styles.actionIcon, { backgroundColor: '#f59e0b' }]}>
-                <Ionicons name="swap-horizontal" size={24} color="white" />
-              </View>
-              <Text style={styles.actionTitle}>Exchange</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.actionCard}>
-              <View style={[styles.actionIcon, { backgroundColor: '#8b5cf6' }]}>
-                <Ionicons name="analytics" size={24} color="white" />
-              </View>
-              <Text style={styles.actionTitle}>Analytics</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.actionsContainer}>
+          <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#10b981' }]}>
+            <Ionicons name="add-circle" size={20} color="white" />
+            <Text style={styles.actionButtonText}>Add Money</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#3b82f6' }]}>
+            <Ionicons name="send" size={20} color="white" />
+            <Text style={styles.actionButtonText}>Send Money</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Recent Transactions */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recent Transactions</Text>
-          {recentTransactions.map((transaction, index) => (
-            <TouchableOpacity key={index} style={styles.transactionCard}>
-              <View style={styles.transactionHeader}>
-                <View style={styles.transactionInfo}>
-                  <Text style={styles.transactionId}>{transaction.id}</Text>
-                  <Text style={styles.transactionDescription}>{transaction.description}</Text>
-                </View>
-                <View style={styles.transactionAmount}>
-                  <Text style={[
-                    styles.amountText,
-                    { color: transaction.type === 'credit' ? '#10b981' : '#ef4444' }
-                  ]}>
-                    {transaction.type === 'credit' ? '+' : '-'}${transaction.amount.toLocaleString()}
-                  </Text>
-                  <Text style={styles.transactionDate}>{transaction.date}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          ))}
+          <View style={styles.transactionsList}>
+            <FlatList
+              data={transactions}
+              renderItem={renderTransaction}
+              keyExtractor={(item) => item.id}
+              scrollEnabled={false}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -145,11 +158,10 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  balanceCard: {
+  balanceHeader: {
     backgroundColor: '#1e293b',
     padding: 20,
-    margin: 16,
-    borderRadius: 16,
+    paddingTop: 10,
     alignItems: 'center',
   },
   balanceLabel: {
@@ -157,13 +169,18 @@ const styles = StyleSheet.create({
     color: '#94a3b8',
     marginBottom: 8,
   },
-  balanceAmount: {
-    fontSize: 32,
+  totalBalance: {
+    fontSize: 36,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: 4,
+    marginBottom: 8,
   },
   balanceChange: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  balanceChangeText: {
     fontSize: 14,
     color: '#10b981',
     fontWeight: '600',
@@ -192,6 +209,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: 8,
   },
   walletInfo: {
     flex: 1,
@@ -202,94 +220,100 @@ const styles = StyleSheet.create({
     color: '#1e293b',
     marginBottom: 4,
   },
-  walletType: {
+  accountNumber: {
     fontSize: 12,
     color: '#64748b',
-    textTransform: 'capitalize',
   },
-  walletBalance: {
+  balanceContainer: {
     alignItems: 'flex-end',
   },
-  balanceText: {
-    fontSize: 18,
+  balance: {
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#1e293b',
   },
-  currencyText: {
+  currency: {
     fontSize: 12,
     color: '#64748b',
   },
-  actionsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
-  },
-  actionCard: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    padding: 16,
-    width: '47%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  actionIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  actionTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#1e293b',
-    textAlign: 'center',
-  },
-  transactionCard: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  transactionHeader: {
+  walletFooter: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  transactionInfo: {
+  walletType: {
+    fontSize: 10,
+    fontWeight: '600',
+    color: '#64748b',
+    backgroundColor: '#f1f5f9',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  actionsContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    gap: 12,
+    marginBottom: 20,
+  },
+  actionButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    gap: 8,
+  },
+  actionButtonText: {
+    color: 'white',
+    fontWeight: '600',
+  },
+  transactionsList: {
+    backgroundColor: '#ffffff',
+    borderRadius: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  transactionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f1f5f9',
+  },
+  transactionIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  transactionContent: {
     flex: 1,
   },
-  transactionId: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#1e293b',
-    marginBottom: 4,
-  },
   transactionDescription: {
-    fontSize: 12,
-    color: '#64748b',
-  },
-  transactionAmount: {
-    alignItems: 'flex-end',
-  },
-  amountText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 4,
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#1e293b',
   },
   transactionDate: {
     fontSize: 12,
     color: '#64748b',
+    marginTop: 2,
+  },
+  transactionAmount: {
+    alignItems: 'flex-end',
+  },
+  amount: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

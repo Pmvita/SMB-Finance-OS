@@ -97,8 +97,8 @@ const InvoicesScreen = () => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Summary Cards */}
         <View style={styles.summaryContainer}>
           <View style={styles.summaryCard}>
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
   summaryContainer: {
     flexDirection: 'row',
     padding: 16,
+    paddingTop: 10,
     gap: 12,
   },
   summaryCard: {
@@ -199,7 +200,6 @@ const styles = StyleSheet.create({
   actionButtonText: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 14,
   },
   section: {
     padding: 16,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 10,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: 'white',
   },
   clientName: {
@@ -256,20 +256,20 @@ const styles = StyleSheet.create({
   detailRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   detailLabel: {
     fontSize: 12,
     color: '#64748b',
   },
+  amount: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1e293b',
+  },
   detailValue: {
     fontSize: 12,
     color: '#1e293b',
-    fontWeight: '500',
-  },
-  amount: {
-    fontSize: 12,
-    color: '#1e293b',
-    fontWeight: 'bold',
   },
 });
 

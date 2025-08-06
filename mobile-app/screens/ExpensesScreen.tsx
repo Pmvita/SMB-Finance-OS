@@ -11,6 +11,7 @@ const ExpensesScreen = () => {
       amount: 150,
       date: '2024-01-15',
       status: 'approved',
+      description: 'Printer ink and paper',
     },
     {
       id: 'EXP-002',
@@ -18,6 +19,7 @@ const ExpensesScreen = () => {
       amount: 450,
       date: '2024-01-12',
       status: 'pending',
+      description: 'Client meeting travel',
     },
     {
       id: 'EXP-003',
@@ -25,6 +27,7 @@ const ExpensesScreen = () => {
       amount: 800,
       date: '2024-01-10',
       status: 'approved',
+      description: 'Digital advertising',
     },
     {
       id: 'EXP-004',
@@ -32,14 +35,15 @@ const ExpensesScreen = () => {
       amount: 200,
       date: '2024-01-08',
       status: 'approved',
+      description: 'Project management tool',
     },
   ];
 
   const categories = [
-    { name: 'Office Supplies', icon: 'briefcase', color: '#10b981' },
-    { name: 'Travel', icon: 'airplane', color: '#3b82f6' },
-    { name: 'Marketing', icon: 'megaphone', color: '#8b5cf6' },
-    { name: 'Software', icon: 'laptop', color: '#f59e0b' },
+    { name: 'Office Supplies', icon: 'briefcase', color: '#10b981', amount: 450, count: 8 },
+    { name: 'Travel', icon: 'airplane', color: '#3b82f6', amount: 320, count: 3 },
+    { name: 'Marketing', icon: 'megaphone', color: '#8b5cf6', amount: 800, count: 5 },
+    { name: 'Software', icon: 'laptop', color: '#f59e0b', amount: 200, count: 2 },
   ];
 
   const getStatusColor = (status: string) => {
@@ -64,6 +68,7 @@ const ExpensesScreen = () => {
         </View>
       </View>
       <Text style={styles.categoryName}>{item.category}</Text>
+      <Text style={styles.description}>{item.description}</Text>
       <View style={styles.expenseDetails}>
         <View style={styles.detailRow}>
           <Text style={styles.detailLabel}>Amount:</Text>
@@ -77,24 +82,35 @@ const ExpensesScreen = () => {
     </TouchableOpacity>
   );
 
+  const renderCategory = ({ item }: { item: any }) => (
+    <TouchableOpacity style={styles.categoryCard}>
+      <View style={[styles.categoryIcon, { backgroundColor: item.color }]}>
+        <Ionicons name={item.icon as any} size={24} color="white" />
+      </View>
+      <Text style={styles.categoryName}>{item.name}</Text>
+      <Text style={styles.categoryAmount}>${item.amount.toLocaleString()}</Text>
+      <Text style={styles.categoryCount}>{item.count} expenses</Text>
+    </TouchableOpacity>
+  );
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Summary Cards */}
         <View style={styles.summaryContainer}>
           <View style={styles.summaryCard}>
             <Text style={styles.summaryLabel}>Total Expenses</Text>
             <Text style={styles.summaryValue}>$1,600</Text>
-            <Text style={styles.summaryChange}>+8% this month</Text>
+            <Text style={styles.summaryChange}>-12% this month</Text>
           </View>
           <View style={styles.summaryCard}>
             <Text style={styles.summaryLabel}>This Month</Text>
             <Text style={styles.summaryValue}>$450</Text>
-            <Text style={styles.summaryChange}>-12% vs last month</Text>
+            <Text style={styles.summaryChange}>+8% vs last month</Text>
           </View>
         </View>
 
-        {/* Categories */}
+        {/* Categories Grid */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Categories</Text>
           <View style={styles.categoriesGrid}>
@@ -103,7 +119,9 @@ const ExpensesScreen = () => {
                 <View style={[styles.categoryIcon, { backgroundColor: category.color }]}>
                   <Ionicons name={category.icon as any} size={24} color="white" />
                 </View>
-                <Text style={styles.categoryTitle}>{category.name}</Text>
+                <Text style={styles.categoryName}>{category.name}</Text>
+                <Text style={styles.categoryAmount}>${category.amount.toLocaleString()}</Text>
+                <Text style={styles.categoryCount}>{category.count} expenses</Text>
               </TouchableOpacity>
             ))}
           </View>
@@ -147,6 +165,7 @@ const styles = StyleSheet.create({
   summaryContainer: {
     flexDirection: 'row',
     padding: 16,
+    paddingTop: 10,
     gap: 12,
   },
   summaryCard: {
@@ -210,11 +229,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
   },
-  categoryTitle: {
+  categoryName: {
     fontSize: 14,
     fontWeight: '600',
     color: '#1e293b',
     textAlign: 'center',
+    marginBottom: 4,
+  },
+  categoryAmount: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1e293b',
+    marginBottom: 2,
+  },
+  categoryCount: {
+    fontSize: 12,
+    color: '#64748b',
   },
   actionsContainer: {
     flexDirection: 'row',
@@ -235,7 +265,6 @@ const styles = StyleSheet.create({
   actionButtonText: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 14,
   },
   expenseCard: {
     backgroundColor: '#ffffff',
@@ -266,10 +295,10 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 10,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: 'white',
   },
-  categoryName: {
+  description: {
     fontSize: 14,
     color: '#64748b',
     marginBottom: 12,
@@ -280,20 +309,20 @@ const styles = StyleSheet.create({
   detailRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   detailLabel: {
     fontSize: 12,
     color: '#64748b',
   },
+  amount: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1e293b',
+  },
   detailValue: {
     fontSize: 12,
     color: '#1e293b',
-    fontWeight: '500',
-  },
-  amount: {
-    fontSize: 12,
-    color: '#1e293b',
-    fontWeight: 'bold',
   },
 });
 
