@@ -1,22 +1,56 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import MockDataService from '../services/mockDataService';
 
 const DashboardScreen = () => {
-  const metrics = [
-    { title: 'Total Revenue', value: '$45,230', change: '+12.5%', color: '#10b981' },
-    { title: 'Outstanding Invoices', value: '$8,450', change: '-5.2%', color: '#f59e0b' },
-    { title: 'Monthly Expenses', value: '$12,800', change: '+8.1%', color: '#ef4444' },
-    { title: 'Cash Flow', value: '$32,430', change: '+15.3%', color: '#3b82f6' },
-  ];
+  const [isLoading, setIsLoading] = useState(true);
+  const [dashboardData, setDashboardData] = useState<any>(null);
 
-  const quickActions = [
-    { title: 'Create Invoice', icon: 'add-circle-outline', color: '#10b981' },
-    { title: 'Add Expense', icon: 'calculator-outline', color: '#f59e0b' },
-    { title: 'Send Payment', icon: 'card-outline', color: '#3b82f6' },
-    { title: 'View Reports', icon: 'bar-chart-outline', color: '#8b5cf6' },
-  ];
+  useEffect(() => {
+    loadDashboardData();
+  }, []);
+
+  const loadDashboardData = async () => {
+    try {
+      setIsLoading(true);
+      const mockService = MockDataService.getInstance();
+      const data = await mockService.fetchDashboard();
+      setDashboardData(data);
+    } catch (error) {
+      console.error('Error loading dashboard data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#10b981" />
+          <Text style={styles.loadingText}>Loading your dashboard...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (!dashboardData) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.errorContainer}>
+          <Ionicons name="alert-circle" size={48} color="#ef4444" />
+          <Text style={styles.errorText}>Failed to load dashboard data</Text>
+          <TouchableOpacity style={styles.retryButton} onPress={loadDashboardData}>
+            <Text style={styles.retryButtonText}>Retry</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const { metrics, quickActions, recentActivity } = dashboardData;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,33 +63,73 @@ const DashboardScreen = () => {
 
         {/* Metrics Grid */}
         <View style={styles.metricsContainer}>
-          {metrics.map((metric, index) => (
-            <View key={index} style={styles.metricCard}>
-              <Text style={styles.metricTitle}>{metric.title}</Text>
-              <Text style={styles.metricValue}>{metric.value}</Text>
-              <View style={styles.changeContainer}>
-                <Ionicons 
-                  name={metric.change.startsWith('+') ? 'trending-up' : 'trending-down'} 
-                  size={16} 
-                  color={metric.change.startsWith('+') ? '#10b981' : '#ef4444'} 
-                />
-                <Text style={[
-                  styles.changeText, 
-                  { color: metric.change.startsWith('+') ? '#10b981' : '#ef4444' }
-                ]}>
-                  {metric.change}
-                </Text>
-              </View>
+          <View style={styles.metricCard}>
+            <Text style={styles.metricTitle}>Total Revenue</Text>
+            <Text style={styles.metricValue}>${metrics.totalRevenue.toLocaleString()}</Text>
+            <View style={styles.changeContainer}>
+              <Ionicons 
+                name="trending-up" 
+                size={16} 
+                color="#10b981" 
+              />
+              <Text style={[styles.changeText, { color: '#10b981' }]}>
+                +{metrics.revenueChange}%
+              </Text>
             </View>
-          ))}
+          </View>
+
+          <View style={styles.metricCard}>
+            <Text style={styles.metricTitle}>Outstanding Invoices</Text>
+            <Text style={styles.metricValue}>${metrics.outstandingInvoices.toLocaleString()}</Text>
+            <View style={styles.changeContainer}>
+              <Ionicons 
+                name="trending-down" 
+                size={16} 
+                color="#ef4444" 
+              />
+              <Text style={[styles.changeText, { color: '#ef4444' }]}>
+                -5.2%
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.metricCard}>
+            <Text style={styles.metricTitle}>Monthly Expenses</Text>
+            <Text style={styles.metricValue}>${metrics.monthlyExpenses.toLocaleString()}</Text>
+            <View style={styles.changeContainer}>
+              <Ionicons 
+                name="trending-up" 
+                size={16} 
+                color="#f59e0b" 
+              />
+              <Text style={[styles.changeText, { color: '#f59e0b' }]}>
+                +{metrics.expenseChange}%
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.metricCard}>
+            <Text style={styles.metricTitle}>Cash Flow</Text>
+            <Text style={styles.metricValue}>${metrics.cashFlow.toLocaleString()}</Text>
+            <View style={styles.changeContainer}>
+              <Ionicons 
+                name="trending-up" 
+                size={16} 
+                color="#10b981" 
+              />
+              <Text style={[styles.changeText, { color: '#10b981' }]}>
+                +{metrics.cashFlowChange}%
+              </Text>
+            </View>
+          </View>
         </View>
 
         {/* Quick Actions */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quick Actions</Text>
           <View style={styles.actionsGrid}>
-            {quickActions.map((action, index) => (
-              <TouchableOpacity key={index} style={styles.actionCard}>
+            {quickActions.map((action: any, index: number) => (
+              <TouchableOpacity key={action.id} style={styles.actionCard}>
                 <View style={[styles.actionIcon, { backgroundColor: action.color }]}>
                   <Ionicons name={action.icon as any} size={24} color="white" />
                 </View>
@@ -69,33 +143,17 @@ const DashboardScreen = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recent Activity</Text>
           <View style={styles.activityList}>
-            <View style={styles.activityItem}>
-              <View style={[styles.activityIcon, { backgroundColor: '#10b981' }]}>
-                <Ionicons name="checkmark-circle" size={20} color="white" />
+            {recentActivity.map((activity: any) => (
+              <View key={activity.id} style={styles.activityItem}>
+                <View style={[styles.activityIcon, { backgroundColor: activity.color }]}>
+                  <Ionicons name={activity.icon as any} size={20} color="white" />
+                </View>
+                <View style={styles.activityContent}>
+                  <Text style={styles.activityTitle}>{activity.title}</Text>
+                  <Text style={styles.activitySubtitle}>{activity.subtitle}</Text>
+                </View>
               </View>
-              <View style={styles.activityContent}>
-                <Text style={styles.activityTitle}>Invoice #INV-001 paid</Text>
-                <Text style={styles.activitySubtitle}>$2,500 • 2 hours ago</Text>
-              </View>
-            </View>
-            <View style={styles.activityItem}>
-              <View style={[styles.activityIcon, { backgroundColor: '#f59e0b' }]}>
-                <Ionicons name="receipt" size={20} color="white" />
-              </View>
-              <View style={styles.activityContent}>
-                <Text style={styles.activityTitle}>Expense added</Text>
-                <Text style={styles.activitySubtitle}>$150 • Office supplies</Text>
-              </View>
-            </View>
-            <View style={styles.activityItem}>
-              <View style={[styles.activityIcon, { backgroundColor: '#3b82f6' }]}>
-                <Ionicons name="card" size={20} color="white" />
-              </View>
-              <View style={styles.activityContent}>
-                <Text style={styles.activityTitle}>Payment received</Text>
-                <Text style={styles.activitySubtitle}>$1,200 • Client ABC</Text>
-              </View>
-            </View>
+            ))}
           </View>
         </View>
       </ScrollView>
@@ -110,6 +168,39 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: '#64748b',
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  errorText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: '#64748b',
+    textAlign: 'center',
+    marginBottom: 24,
+  },
+  retryButton: {
+    backgroundColor: '#10b981',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  retryButtonText: {
+    color: 'white',
+    fontWeight: '600',
   },
   header: {
     padding: 20,

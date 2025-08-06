@@ -1,0 +1,329 @@
+{
+  "user": {
+    "id": "dev-user-001",
+    "name": "Dev Business Owner",
+    "email": "dev@smbfinanceos.com",
+    "businessName": "Dev Business Solutions",
+    "businessType": "Technology Services",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "lastLogin": "2024-01-15T10:30:00Z"
+  },
+  "dashboard": {
+    "metrics": {
+      "totalRevenue": 45230,
+      "outstandingInvoices": 8450,
+      "monthlyExpenses": 12800,
+      "cashFlow": 32430,
+      "revenueChange": 12.5,
+      "expenseChange": 8.1,
+      "cashFlowChange": 15.3
+    },
+    "quickActions": [
+      {
+        "id": "create-invoice",
+        "title": "Create Invoice",
+        "icon": "add-circle-outline",
+        "color": "#10b981"
+      },
+      {
+        "id": "add-expense",
+        "title": "Add Expense",
+        "icon": "calculator-outline",
+        "color": "#f59e0b"
+      },
+      {
+        "id": "send-payment",
+        "title": "Send Payment",
+        "icon": "card-outline",
+        "color": "#3b82f6"
+      },
+      {
+        "id": "view-reports",
+        "title": "View Reports",
+        "icon": "bar-chart-outline",
+        "color": "#8b5cf6"
+      }
+    ],
+    "recentActivity": [
+      {
+        "id": "act-001",
+        "type": "invoice_paid",
+        "title": "Invoice #INV-001 paid",
+        "subtitle": "$2,500 • 2 hours ago",
+        "icon": "checkmark-circle",
+        "color": "#10b981"
+      },
+      {
+        "id": "act-002",
+        "type": "expense_added",
+        "title": "Expense added",
+        "subtitle": "$150 • Office supplies",
+        "icon": "receipt",
+        "color": "#f59e0b"
+      },
+      {
+        "id": "act-003",
+        "type": "payment_received",
+        "title": "Payment received",
+        "subtitle": "$1,200 • Client ABC",
+        "icon": "card",
+        "color": "#3b82f6"
+      }
+    ]
+  },
+  "invoices": {
+    "summary": {
+      "totalInvoices": 24,
+      "outstandingAmount": 8450,
+      "paidThisMonth": 12500,
+      "overdueAmount": 3200
+    },
+    "recent": [
+      {
+        "id": "INV-001",
+        "client": "TechStart Solutions",
+        "amount": 2500,
+        "status": "paid",
+        "date": "2024-01-15",
+        "dueDate": "2024-01-30",
+        "items": [
+          {
+            "description": "Web Development Services",
+            "quantity": 1,
+            "rate": 2500,
+            "amount": 2500
+          }
+        ]
+      },
+      {
+        "id": "INV-002",
+        "client": "Green Energy Co.",
+        "amount": 1800,
+        "status": "pending",
+        "date": "2024-01-10",
+        "dueDate": "2024-01-25",
+        "items": [
+          {
+            "description": "Consulting Services",
+            "quantity": 1,
+            "rate": 1800,
+            "amount": 1800
+          }
+        ]
+      },
+      {
+        "id": "INV-003",
+        "client": "Patel Consulting",
+        "amount": 3200,
+        "status": "overdue",
+        "date": "2024-01-05",
+        "dueDate": "2024-01-20",
+        "items": [
+          {
+            "description": "Software Implementation",
+            "quantity": 1,
+            "rate": 3200,
+            "amount": 3200
+          }
+        ]
+      },
+      {
+        "id": "INV-004",
+        "client": "Global Services Ltd",
+        "amount": 4500,
+        "status": "draft",
+        "date": "2024-01-12",
+        "dueDate": "2024-02-12",
+        "items": [
+          {
+            "description": "Project Management",
+            "quantity": 1,
+            "rate": 4500,
+            "amount": 4500
+          }
+        ]
+      }
+    ]
+  },
+  "expenses": {
+    "summary": {
+      "totalExpenses": 1600,
+      "thisMonth": 450,
+      "lastMonth": 520,
+      "changePercent": -12
+    },
+    "categories": [
+      {
+        "name": "Office Supplies",
+        "icon": "briefcase",
+        "color": "#10b981",
+        "amount": 450,
+        "count": 8
+      },
+      {
+        "name": "Travel",
+        "icon": "airplane",
+        "color": "#3b82f6",
+        "amount": 320,
+        "count": 3
+      },
+      {
+        "name": "Marketing",
+        "icon": "megaphone",
+        "color": "#8b5cf6",
+        "amount": 800,
+        "count": 5
+      },
+      {
+        "name": "Software",
+        "icon": "laptop",
+        "color": "#f59e0b",
+        "amount": 200,
+        "count": 2
+      }
+    ],
+    "recent": [
+      {
+        "id": "EXP-001",
+        "category": "Office Supplies",
+        "amount": 150,
+        "date": "2024-01-15",
+        "status": "approved",
+        "description": "Printer ink and paper"
+      },
+      {
+        "id": "EXP-002",
+        "category": "Travel",
+        "amount": 450,
+        "date": "2024-01-12",
+        "status": "pending",
+        "description": "Client meeting travel"
+      },
+      {
+        "id": "EXP-003",
+        "category": "Marketing",
+        "amount": 800,
+        "date": "2024-01-10",
+        "status": "approved",
+        "description": "Digital advertising"
+      },
+      {
+        "id": "EXP-004",
+        "category": "Software",
+        "amount": 200,
+        "date": "2024-01-08",
+        "status": "approved",
+        "description": "Project management tool"
+      }
+    ]
+  },
+  "wallet": {
+    "totalBalance": 48930,
+    "balanceChange": 4250,
+    "changePercent": 9.5,
+    "accounts": [
+      {
+        "id": "acc-001",
+        "name": "Main Business Account",
+        "balance": 25430,
+        "currency": "USD",
+        "type": "checking",
+        "accountNumber": "****1234"
+      },
+      {
+        "id": "acc-002",
+        "name": "Savings Account",
+        "balance": 15000,
+        "currency": "USD",
+        "type": "savings",
+        "accountNumber": "****5678"
+      },
+      {
+        "id": "acc-003",
+        "name": "Tax Reserve",
+        "balance": 8500,
+        "currency": "USD",
+        "type": "reserve",
+        "accountNumber": "****9012"
+      }
+    ],
+    "recentTransactions": [
+      {
+        "id": "TXN-001",
+        "type": "credit",
+        "amount": 2500,
+        "description": "Invoice payment - TechStart",
+        "date": "2024-01-15",
+        "account": "Main Business Account"
+      },
+      {
+        "id": "TXN-002",
+        "type": "debit",
+        "amount": 150,
+        "description": "Office supplies",
+        "date": "2024-01-14",
+        "account": "Main Business Account"
+      },
+      {
+        "id": "TXN-003",
+        "type": "credit",
+        "amount": 1800,
+        "description": "Invoice payment - Green Energy",
+        "date": "2024-01-13",
+        "account": "Main Business Account"
+      }
+    ]
+  },
+  "profile": {
+    "stats": {
+      "invoices": 24,
+      "balance": 48930,
+      "expenses": 12
+    },
+    "settings": [
+      {
+        "title": "Business Profile",
+        "icon": "business",
+        "color": "#10b981",
+        "action": "navigate"
+      },
+      {
+        "title": "Security Settings",
+        "icon": "shield-checkmark",
+        "color": "#3b82f6",
+        "action": "navigate"
+      },
+      {
+        "title": "Notifications",
+        "icon": "notifications",
+        "color": "#f59e0b",
+        "action": "toggle",
+        "value": true
+      },
+      {
+        "title": "Payment Methods",
+        "icon": "card",
+        "color": "#8b5cf6",
+        "action": "navigate"
+      },
+      {
+        "title": "Tax Settings",
+        "icon": "calculator",
+        "color": "#ef4444",
+        "action": "navigate"
+      },
+      {
+        "title": "Support",
+        "icon": "help-circle",
+        "color": "#64748b",
+        "action": "navigate"
+      },
+      {
+        "title": "About",
+        "icon": "information-circle",
+        "color": "#06b6d4",
+        "action": "navigate"
+      }
+    ]
+  }
+} 
