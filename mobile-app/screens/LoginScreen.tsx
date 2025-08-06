@@ -222,6 +222,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#1e293b',
   },
   gradient: {
     flex: 1,
