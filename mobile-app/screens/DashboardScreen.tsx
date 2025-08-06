@@ -27,7 +27,7 @@ const DashboardScreen = () => {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#10b981" />
           <Text style={styles.loadingText}>Loading your dashboard...</Text>
@@ -38,7 +38,7 @@ const DashboardScreen = () => {
 
   if (!dashboardData) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <View style={styles.errorContainer}>
           <Ionicons name="alert-circle" size={48} color="#ef4444" />
           <Text style={styles.errorText}>Failed to load dashboard data</Text>
@@ -53,8 +53,8 @@ const DashboardScreen = () => {
   const { metrics, quickActions, recentActivity } = dashboardData;
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.greeting}>Good morning, Business Owner</Text>
@@ -204,6 +204,7 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 20,
+    paddingTop: 10,
     backgroundColor: '#1e293b',
   },
   greeting: {
