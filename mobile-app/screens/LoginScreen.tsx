@@ -149,33 +149,30 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
             <View style={styles.dividerLine} />
           </View>
 
-          {/* Social Login Buttons */}
+          {/* Social Login Icons */}
           <View style={styles.socialContainer}>
             <TouchableOpacity
-              style={[styles.socialButton, styles.googleButton]}
+              style={[styles.socialIcon, styles.googleIcon]}
               onPress={() => handleSocialLogin('Google')}
               disabled={isLoading}
             >
-              <Ionicons name="logo-google" size={20} color="#EA4335" />
-              <Text style={styles.socialButtonText}>Continue with Google</Text>
+              <Ionicons name="logo-google" size={24} color="#EA4335" />
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.socialButton, styles.facebookButton]}
+              style={[styles.socialIcon, styles.facebookIcon]}
               onPress={() => handleSocialLogin('Facebook')}
               disabled={isLoading}
             >
-              <Ionicons name="logo-facebook" size={20} color="#1877F2" />
-              <Text style={styles.socialButtonText}>Continue with Facebook</Text>
+              <Ionicons name="logo-facebook" size={24} color="#1877F2" />
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.socialButton, styles.twitterButton]}
+              style={[styles.socialIcon, styles.twitterIcon]}
               onPress={() => handleSocialLogin('X (Twitter)')}
               disabled={isLoading}
             >
-              <Ionicons name="logo-twitter" size={20} color="#1DA1F2" />
-              <Text style={styles.socialButtonText}>Continue with X</Text>
+              <Ionicons name="logo-twitter" size={24} color="#1DA1F2" />
             </TouchableOpacity>
           </View>
 
@@ -325,35 +322,36 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
     marginBottom: 20,
   },
-  socialButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  socialIcon: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
-    borderRadius: 12,
-    paddingVertical: 16,
-    marginBottom: 12,
+    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
-  googleButton: {
-    backgroundColor: '#ffffff',
+  googleIcon: {
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
   },
-  facebookButton: {
-    backgroundColor: '#ffffff',
+  facebookIcon: {
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
   },
-  twitterButton: {
-    backgroundColor: '#ffffff',
-  },
-  socialButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#1e293b',
-    marginLeft: 12,
+  twitterIcon: {
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
   },
   devModeToggle: {
     flexDirection: 'row',
