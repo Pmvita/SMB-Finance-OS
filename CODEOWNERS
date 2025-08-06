@@ -1,0 +1,20 @@
+# Global owners
+* @Pmvita
+
+# Backend specific
+/backend/ @Pmvita
+
+# Frontend specific  
+/frontend/ @Pmvita
+
+# Mobile app specific
+/mobile-app/ @Pmvita
+
+# Documentation
+/docs/ @Pmvita
+
+# Configuration files
+*.yml @Pmvita
+*.yaml @Pmvita
+*.json @Pmvita
+*.md @Pmvita 
