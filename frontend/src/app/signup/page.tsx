@@ -10,7 +10,8 @@ import {
   CheckIcon,
   BuildingOfficeIcon,
   GlobeAltIcon,
-  CurrencyDollarIcon
+  CurrencyDollarIcon,
+  ArrowRightIcon
 } from '@heroicons/react/24/outline';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -176,27 +177,27 @@ export default function SignUp() {
           {/* Progress Steps */}
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center space-x-4">
-              <div className={`flex items-center ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-400'}`}>
+              <div className={`flex items-center ${currentStep >= 1 ? 'text-green-600' : 'text-gray-400'}`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-                  currentStep >= 1 ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'
+                  currentStep >= 1 ? 'bg-green-600 border-green-600 text-white' : 'border-gray-300'
                 }`}>
                   {currentStep > 1 ? <CheckIcon className="h-5 w-5" /> : '1'}
                 </div>
                 <span className="ml-2 text-sm font-medium">Personal Info</span>
               </div>
-              <div className={`w-12 h-0.5 ${currentStep >= 2 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-              <div className={`flex items-center ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-400'}`}>
+              <div className={`w-12 h-0.5 ${currentStep >= 2 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center ${currentStep >= 2 ? 'text-green-600' : 'text-gray-400'}`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-                  currentStep >= 2 ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'
+                  currentStep >= 2 ? 'bg-green-600 border-green-600 text-white' : 'border-gray-300'
                 }`}>
                   {currentStep > 2 ? <CheckIcon className="h-5 w-5" /> : '2'}
                 </div>
                 <span className="ml-2 text-sm font-medium">Business Info</span>
               </div>
-              <div className={`w-12 h-0.5 ${currentStep >= 3 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-              <div className={`flex items-center ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-400'}`}>
+              <div className={`w-12 h-0.5 ${currentStep >= 3 ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center ${currentStep >= 3 ? 'text-green-600' : 'text-gray-400'}`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
-                  currentStep >= 3 ? 'bg-blue-600 border-blue-600 text-white' : 'border-gray-300'
+                  currentStep >= 3 ? 'bg-green-600 border-green-600 text-white' : 'border-gray-300'
                 }`}>
                   3
                 </div>
@@ -344,9 +345,10 @@ export default function SignUp() {
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                   >
-                    Next: Business Information
+                    Next Step
+                    <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </button>
                 </div>
               </motion.div>
@@ -516,9 +518,10 @@ export default function SignUp() {
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                   >
-                    Next: Account Setup
+                    Next Step
+                    <ArrowRightIcon className="ml-2 h-4 w-4" />
                   </button>
                 </div>
               </motion.div>
@@ -663,7 +666,7 @@ export default function SignUp() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none"
+                    className="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none"
                   >
                     {isSubmitting ? (
                       <>
