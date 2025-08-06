@@ -185,14 +185,22 @@ The frontend is optimized for Vercel deployment:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](/docs/contributing.md) for details.
+We welcome contributions! Please see our [Contributing Guide](/docs/contributing.md) for detailed information about our development workflow and contribution process.
 
-### Development Workflow
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Quick Development Workflow
+1. **Fork the repository** (if you're not a collaborator)
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Make your changes** and commit them (`git commit -m 'feat: add amazing feature'`)
+4. **Push to your branch** (`git push origin feature/amazing-feature`)
+5. **Create a Pull Request** and request review from @Pmvita
+
+### Branch Protection
+- ✅ **Pull requests required** for all changes to main
+- ✅ **Code review required** before merging
+- ✅ **Code owner approval** (@Pmvita) required
+- ❌ **No direct pushes** to main branch allowed
+
+For complete details, see our [Contributing Guide](/docs/contributing.md) and [Architecture Documentation](/docs/architecture/).
 
 
 ## 🆘 Support
