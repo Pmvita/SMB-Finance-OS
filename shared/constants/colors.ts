@@ -2,7 +2,7 @@
 // Shared between frontend and mobile app
 
 export const Colors = {
-  // Primary Brand Colors
+  // Primary Brand Colors - Modern Blue
   primary: {
     50: '#eff6ff',
     100: '#dbeafe',
@@ -16,7 +16,7 @@ export const Colors = {
     900: '#1e3a8a',
   },
 
-  // Success Green - Growth & Prosperity
+  // Success Green - Modern Growth Green
   success: {
     50: '#f0fdf4',
     100: '#dcfce7',
@@ -30,7 +30,7 @@ export const Colors = {
     900: '#14532d',
   },
 
-  // Warning Orange - Attention & Alerts
+  // Warning Orange - Modern Attention Orange
   warning: {
     50: '#fffbeb',
     100: '#fef3c7',
@@ -44,7 +44,7 @@ export const Colors = {
     900: '#78350f',
   },
 
-  // Danger Red - Errors & Critical
+  // Danger Red - Modern Error Red
   danger: {
     50: '#fef2f2',
     100: '#fee2e2',
@@ -58,7 +58,7 @@ export const Colors = {
     900: '#7f1d1d',
   },
 
-  // Neutral Grays - Text & Backgrounds
+  // Neutral Grays - Modern Clean Grays
   neutral: {
     50: '#f8fafc',
     100: '#f1f5f9',
@@ -72,12 +72,14 @@ export const Colors = {
     900: '#0f172a',
   },
 
-  // Accent Colors - Specialized Features
+  // Accent Colors - Modern Vibrant Accents
   accent: {
-    purple: '#8b5cf6',   // Premium features
-    teal: '#06b6d4',     // Professional services
-    amber: '#f59e0b',    // Payments
-    emerald: '#10b981',  // Success states
+    purple: '#8b5cf6',   // Modern purple for premium features
+    teal: '#06b6d4',     // Modern teal for professional services
+    amber: '#f59e0b',    // Modern amber for payments
+    emerald: '#10b981',  // Modern emerald for success states
+    indigo: '#6366f1',   // Modern indigo for tech features
+    rose: '#f43f5e',     // Modern rose for special alerts
   },
 
   // Semantic Colors
@@ -128,7 +130,7 @@ export const Colors = {
 // Color Type Definitions
 export type ColorShade = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 export type ColorPalette = 'primary' | 'success' | 'warning' | 'danger' | 'neutral';
-export type AccentColor = 'purple' | 'teal' | 'amber' | 'emerald';
+export type AccentColor = 'purple' | 'teal' | 'amber' | 'emerald' | 'indigo' | 'rose';
 
 // Utility Functions
 export const getColor = (palette: ColorPalette, shade: ColorShade): string => {

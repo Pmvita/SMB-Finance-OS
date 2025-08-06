@@ -72,19 +72,22 @@ const platformFeatures = [
     icon: ComputerDesktopIcon,
     title: 'Web Dashboard',
     description: 'Full-featured web application for desktop and tablet use',
-    features: ['Advanced analytics', 'Bulk operations', 'Detailed reporting', 'Team collaboration']
+    features: ['Advanced analytics', 'Bulk operations', 'Detailed reporting', 'Team collaboration'],
+    color: 'bg-blue-100 text-blue-600'
   },
   {
     icon: DevicePhoneMobileIcon,
     title: 'Mobile App',
     description: 'Native mobile app for iOS and Android',
-    features: ['On-the-go access', 'Push notifications', 'Offline capabilities', 'Mobile payments']
+    features: ['On-the-go access', 'Push notifications', 'Offline capabilities', 'Mobile payments'],
+    color: 'bg-purple-100 text-purple-600'
   },
   {
     icon: CloudIcon,
     title: 'API Access',
     description: 'RESTful API for custom integrations',
-    features: ['Developer-friendly', 'Webhook support', 'Real-time sync', 'Custom workflows']
+    features: ['Developer-friendly', 'Webhook support', 'Real-time sync', 'Custom workflows'],
+    color: 'bg-indigo-100 text-indigo-600'
   }
 ];
 
@@ -197,7 +200,7 @@ export default function Home() {
                 <a href="#platforms" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Platforms</a>
                 <a href="#pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pricing</a>
                 <a href="#testimonials" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors">Testimonials</a>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md">
                   Sign In
                 </button>
               </div>
@@ -232,7 +235,7 @@ export default function Home() {
                       {...register('email')}
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition duration-200 bg-white/80 backdrop-blur-sm"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm hover:border-gray-400"
                     />
                     {errors.email && (
                       <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
@@ -243,7 +246,7 @@ export default function Home() {
                       {...register('businessName')}
                       type="text"
                       placeholder="Business name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition duration-200 bg-white/80 backdrop-blur-sm"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm hover:border-gray-400"
                     />
                     {errors.businessName && (
                       <p className="text-red-600 text-sm mt-1">{errors.businessName.message}</p>
@@ -252,7 +255,7 @@ export default function Home() {
                   <div>
                     <select
                       {...register('industry')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition duration-200 bg-white/80 backdrop-blur-sm"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm hover:border-gray-400"
                     >
                       <option value="">Select your industry</option>
                       <option value="technology">Technology</option>
@@ -269,7 +272,7 @@ export default function Home() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center shadow-lg"
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                   >
                     {isSubmitting ? 'Signing up...' : 'Start Free Trial'}
                     <ArrowRightIcon className="ml-2 h-5 w-5" />
@@ -304,9 +307,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-1"
               >
-                <div className={`inline-flex p-3 rounded-lg ${feature.color} text-white mb-4 shadow-md`}>
+                <div className={`inline-flex p-3 rounded-xl ${feature.color} text-white mb-4 shadow-md`}>
                   <feature.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
@@ -337,9 +340,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-2"
               >
-                <div className="inline-flex p-4 rounded-xl bg-blue-100 text-blue-600 mb-6 shadow-md">
+                <div className={`inline-flex p-4 rounded-xl ${platform.color} mb-6 shadow-md`}>
                   <platform.icon className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">{platform.title}</h3>
@@ -357,10 +360,10 @@ export default function Home() {
                 {platform.title === 'Mobile App' && (
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <div className="flex space-x-4">
-                      <button className="flex-1 bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 text-sm">
+                      <button className="flex-1 bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 text-sm transform hover:-translate-y-1">
                         App Store
                       </button>
-                      <button className="flex-1 bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 text-sm">
+                      <button className="flex-1 bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 text-sm transform hover:-translate-y-1">
                         Google Play
                       </button>
                     </div>
@@ -391,7 +394,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl shadow-lg p-8 border border-gray-200 ${
+                className={`relative bg-white rounded-2xl shadow-lg p-8 border border-gray-200 transform hover:-translate-y-2 transition-all duration-300 ${
                   plan.popular ? 'ring-2 ring-blue-500 scale-105' : ''
                 }`}
               >
@@ -420,7 +423,7 @@ export default function Home() {
                     ))}
                   </ul>
                   
-                  <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md">
+                  <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1">
                     Get Started
                   </button>
                 </div>
@@ -449,7 +452,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl border border-gray-200 shadow-lg"
+                className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -478,10 +481,10 @@ export default function Home() {
             Available on web, mobile, and API.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-8 rounded-lg transition duration-200 shadow-lg">
+            <button className="bg-white hover:bg-gray-100 text-blue-600 font-semibold py-3 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Start Your Free Trial
             </button>
-            <button className="bg-transparent hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition duration-200 border border-white">
+            <button className="bg-transparent hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 border-2 border-white hover:border-blue-200 transform hover:-translate-y-1">
               Download Mobile App
             </button>
           </div>
