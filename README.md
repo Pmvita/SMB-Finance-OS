@@ -208,13 +208,8 @@ For complete details, see our [Contributing Guide](/docs/contributing.md) and [A
 - **Documentation**: [docs/](/docs/)
 - **Issues**: [GitHub Issues](https://github.com/your-org/smb-finance-os/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/your-org/smb-finance-os/discussions)
-- **Email**: support@smbfinanceos.com
+- **Email**: petermvita@hotmail.com
 
-## 🙏 Acknowledgments
-
-- Inspired by Stripe, QuickBooks, and other fintech pioneers
-- Built for the underserved SMB market in emerging economies
-- Community-driven development approach
 
 ---
 
