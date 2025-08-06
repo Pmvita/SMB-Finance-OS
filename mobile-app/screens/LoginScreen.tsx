@@ -6,9 +6,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface LoginScreenProps {
   onLogin: (isDevMode: boolean) => void;
+  onSignup?: () => void; // Add signup callback
 }
 
-const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
+const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin, onSignup }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +70,12 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
       setIsLoading(false);
       onLogin(false);
     }, 1500);
+  };
+
+  const handleSignup = () => {
+    if (onSignup) {
+      onSignup();
+    }
   };
 
   const toggleDevMode = () => {
@@ -209,7 +216,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
           {/* Footer */}
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account? </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleSignup}>
               <Text style={styles.footerLink}>Sign up</Text>
             </TouchableOpacity>
           </View>

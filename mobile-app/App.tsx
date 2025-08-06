@@ -71,6 +71,11 @@ export default function App() {
     }
   };
 
+  const handleSignup = () => {
+    // Navigate to onboarding for signup
+    setAppState('onboarding');
+  };
+
   const handleLogout = async () => {
     try {
       await AsyncStorage.removeItem('isLoggedIn');
@@ -93,7 +98,7 @@ export default function App() {
   }
 
   if (appState === 'login') {
-    return <LoginScreen onLogin={handleLogin} />;
+    return <LoginScreen onLogin={handleLogin} onSignup={handleSignup} />;
   }
 
   // Main app with navigation

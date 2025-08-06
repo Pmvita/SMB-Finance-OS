@@ -38,6 +38,65 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ onComplete }) => {
       icon: 'trending-up',
       color: '#8b5cf6',
     },
+    {
+      title: 'Simple Pricing',
+      description: 'Choose the plan that fits your business needs with transparent pricing.',
+      icon: 'card',
+      color: '#ef4444',
+      isPricing: true,
+    },
+  ];
+
+  const pricingPlans = [
+    {
+      name: 'Starter',
+      price: '$29',
+      period: '/month',
+      description: 'Perfect for small businesses getting started',
+      features: [
+        'Up to 5 users',
+        'Basic invoicing',
+        'Expense tracking',
+        'Mobile app access',
+        'Email support',
+        'Basic reporting'
+      ],
+      popular: false
+    },
+    {
+      name: 'Professional',
+      price: '$79',
+      period: '/month',
+      description: 'Ideal for growing businesses',
+      features: [
+        'Up to 25 users',
+        'Advanced invoicing',
+        'Expense tracking',
+        'Digital wallets',
+        'Payment processing',
+        'Tax reporting',
+        'Priority support',
+        'Advanced analytics'
+      ],
+      popular: true
+    },
+    {
+      name: 'Enterprise',
+      price: '$199',
+      period: '/month',
+      description: 'For large organizations with complex needs',
+      features: [
+        'Unlimited users',
+        'All features included',
+        'Custom integrations',
+        'API access',
+        'Dedicated support',
+        'Custom reporting',
+        'Multi-currency support',
+        'Advanced security'
+      ],
+      popular: false
+    }
   ];
 
   const handleNext = () => {
@@ -50,6 +109,61 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ onComplete }) => {
 
   const handleSkip = () => {
     onComplete();
+  };
+
+  const renderPricingPage = () => {
+    return (
+      <View style={styles.pricingPage}>
+        <Text style={styles.pricingTitle}>Choose Your Plan</Text>
+        <Text style={styles.pricingSubtitle}>Start with a 14-day free trial. No credit card required.</Text>
+        
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.pricingContainer}
+          style={styles.pricingScrollView}
+        >
+          {pricingPlans.map((plan, index) => (
+            <Animated.View 
+              key={plan.name} 
+              style={[
+                styles.pricingCard, 
+                plan.popular && styles.popularCard,
+                plan.popular && { transform: [{ scale: 1.05 }] }
+              ]}
+            >
+              {plan.popular && (
+                <View style={styles.popularBadge}>
+                  <Text style={styles.popularBadgeText}>Most Popular</Text>
+                </View>
+              )}
+              
+              <Text style={styles.planName}>{plan.name}</Text>
+              <View style={styles.priceContainer}>
+                <Text style={styles.price}>{plan.price}</Text>
+                <Text style={styles.period}>{plan.period}</Text>
+              </View>
+              <Text style={styles.planDescription}>{plan.description}</Text>
+              
+              <View style={styles.featuresList}>
+                {plan.features.map((feature, idx) => (
+                  <View key={idx} style={styles.featureItem}>
+                    <Ionicons name="checkmark-circle" size={16} color="#10b981" />
+                    <Text style={styles.featureText}>{feature}</Text>
+                  </View>
+                ))}
+              </View>
+              
+              <TouchableOpacity style={[styles.planButton, plan.popular && styles.popularButton]}>
+                <Text style={[styles.planButtonText, plan.popular && styles.popularButtonText]}>
+                  {plan.popular ? 'Start Free Trial' : 'Get Started'}
+                </Text>
+              </TouchableOpacity>
+            </Animated.View>
+          ))}
+        </ScrollView>
+      </View>
+    );
   };
 
   const renderPage = (item: any, index: number) => {
@@ -76,6 +190,15 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ onComplete }) => {
       outputRange: [0.6, 1, 0.6],
       extrapolate: 'clamp',
     });
+
+    // If this is the pricing page, render the pricing content
+    if (item.isPricing) {
+      return (
+        <View key={index} style={styles.page}>
+          {renderPricingPage()}
+        </View>
+      );
+    }
 
     return (
       <View key={index} style={styles.page}>
@@ -294,6 +417,121 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 8,
+  },
+  // Pricing styles
+  pricingPage: {
+    flex: 1,
+    width: width,
+    paddingHorizontal: 20,
+  },
+  pricingTitle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  pricingSubtitle: {
+    fontSize: 16,
+    color: '#94a3b8',
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  pricingScrollView: {
+    flex: 1,
+  },
+  pricingContainer: {
+    paddingHorizontal: 10,
+  },
+  pricingCard: {
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    padding: 20,
+    marginHorizontal: 10,
+    width: 280,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  popularCard: {
+    borderColor: '#10b981',
+    borderWidth: 2,
+  },
+  popularBadge: {
+    position: 'absolute',
+    top: -12,
+    left: '50%',
+    transform: [{ translateX: -50 }],
+    backgroundColor: '#10b981',
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  popularBadgeText: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  planName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1e293b',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  priceContainer: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
+  price: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#1e293b',
+  },
+  period: {
+    fontSize: 16,
+    color: '#64748b',
+    marginLeft: 4,
+  },
+  planDescription: {
+    fontSize: 14,
+    color: '#64748b',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  featuresList: {
+    marginBottom: 24,
+  },
+  featureItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  featureText: {
+    fontSize: 14,
+    color: '#374151',
+    marginLeft: 8,
+  },
+  planButton: {
+    backgroundColor: '#f3f4f6',
+    borderRadius: 8,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  popularButton: {
+    backgroundColor: '#10b981',
+  },
+  planButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#374151',
+  },
+  popularButtonText: {
+    color: '#ffffff',
   },
 });
 
