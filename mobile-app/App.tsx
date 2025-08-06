@@ -126,9 +126,16 @@ export default function App() {
           tabBarStyle: {
             backgroundColor: '#ffffff',
             borderTopColor: '#e2e8f0',
-            paddingBottom: 5,
-            paddingTop: 5,
-            height: 60,
+            borderTopWidth: 1,
+            paddingBottom: 8,
+            paddingTop: 8,
+            height: 80,
+            paddingHorizontal: 10,
+          },
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: '500',
+            marginTop: 4,
           },
           headerStyle: {
             backgroundColor: '#1e293b', // Slate 800
