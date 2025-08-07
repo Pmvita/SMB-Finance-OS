@@ -72,10 +72,6 @@ pip install -r requirements.txt
 # If psycopg2-binary fails to install, try:
 # pip install psycopg2-binary --no-binary :all:
 
-# Copy environment file and configure
-cp env.example .env
-# Edit .env with your database credentials
-
 # Option 1: Run with mock data (no database required)
 export MOCK_DATA_MODE=true
 python run.py
@@ -92,7 +88,6 @@ python run.py
 ```bash
 cd frontend
 npm install
-cp .env.example .env.local
 # Edit .env.local with your API endpoint
 npm run dev
 ```
@@ -101,7 +96,6 @@ npm run dev
 ```bash
 cd mobile-app
 npm install
-cp .env.example .env
 # Edit .env with your API endpoint
 npx expo start
 ```
