@@ -1,0 +1,72 @@
+{
+  "summary": {
+    "totalExpenses": 1600,
+    "thisMonth": 450,
+    "lastMonth": 520,
+    "changePercent": -12
+  },
+  "categories": [
+    {
+      "name": "Office Supplies",
+      "icon": "briefcase",
+      "color": "#10b981",
+      "amount": 450,
+      "count": 8
+    },
+    {
+      "name": "Travel",
+      "icon": "airplane",
+      "color": "#3b82f6",
+      "amount": 320,
+      "count": 3
+    },
+    {
+      "name": "Marketing",
+      "icon": "megaphone",
+      "color": "#8b5cf6",
+      "amount": 800,
+      "count": 5
+    },
+    {
+      "name": "Software",
+      "icon": "laptop",
+      "color": "#f59e0b",
+      "amount": 200,
+      "count": 2
+    }
+  ],
+  "recent": [
+    {
+      "id": "EXP-001",
+      "category": "Office Supplies",
+      "amount": 150,
+      "date": "2024-01-15",
+      "status": "approved",
+      "description": "Printer ink and paper"
+    },
+    {
+      "id": "EXP-002",
+      "category": "Travel",
+      "amount": 450,
+      "date": "2024-01-12",
+      "status": "pending",
+      "description": "Client meeting travel"
+    },
+    {
+      "id": "EXP-003",
+      "category": "Marketing",
+      "amount": 800,
+      "date": "2024-01-10",
+      "status": "approved",
+      "description": "Digital advertising"
+    },
+    {
+      "id": "EXP-004",
+      "category": "Software",
+      "amount": 200,
+      "date": "2024-01-08",
+      "status": "approved",
+      "description": "Project management tool"
+    }
+  ]
+} 

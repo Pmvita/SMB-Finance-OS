@@ -55,7 +55,7 @@ class TaxRecord(db.Model):
     
     # Additional Data
     notes = db.Column(db.Text)
-    metadata = db.Column(JSON, default={})
+    tax_metadata = db.Column(JSON, default={})
     
     # Timestamps
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -92,7 +92,7 @@ class TaxRecord(db.Model):
             'filed_date': self.filed_date.isoformat() if self.filed_date else None,
             'paid_date': self.paid_date.isoformat() if self.paid_date else None,
             'notes': self.notes,
-            'metadata': self.metadata,
+            'metadata': self.tax_metadata,
             'business_id': str(self.business_id),
             'tax_period_id': str(self.tax_period_id) if self.tax_period_id else None,
             'created_at': self.created_at.isoformat() if self.created_at else None,

@@ -77,7 +77,7 @@ class Transaction(db.Model):
     balance_after = db.Column(db.Numeric(15, 2), nullable=False)
     
     # Additional Data
-    metadata = db.Column(JSON, default={})
+    transaction_metadata = db.Column(JSON, default={})
     tags = db.Column(JSON, default=[])
     
     # Timestamps
@@ -99,7 +99,7 @@ class Transaction(db.Model):
             'description': self.description,
             'reference': self.reference,
             'balance_after': float(self.balance_after),
-            'metadata': self.metadata,
+            'metadata': self.transaction_metadata,
             'tags': self.tags,
             'wallet_id': str(self.wallet_id),
             'related_transaction_id': str(self.related_transaction_id) if self.related_transaction_id else None,

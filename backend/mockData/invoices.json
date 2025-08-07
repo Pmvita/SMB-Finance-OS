@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "totalInvoices": 24,
+    "outstandingAmount": 8450,
+    "paidThisMonth": 12500,
+    "overdueAmount": 3200
+  },
+  "recent": [
+    {
+      "id": "INV-001",
+      "client": "TechStart Solutions",
+      "amount": 2500,
+      "status": "paid",
+      "date": "2024-01-15",
+      "dueDate": "2024-01-30",
+      "items": [
+        {
+          "description": "Web Development Services",
+          "quantity": 1,
+          "rate": 2500,
+          "amount": 2500
+        }
+      ]
+    },
+    {
+      "id": "INV-002",
+      "client": "Green Energy Co.",
+      "amount": 1800,
+      "status": "pending",
+      "date": "2024-01-10",
+      "dueDate": "2024-01-25",
+      "items": [
+        {
+          "description": "Consulting Services",
+          "quantity": 1,
+          "rate": 1800,
+          "amount": 1800
+        }
+      ]
+    },
+    {
+      "id": "INV-003",
+      "client": "Patel Consulting",
+      "amount": 3200,
+      "status": "overdue",
+      "date": "2024-01-05",
+      "dueDate": "2024-01-20",
+      "items": [
+        {
+          "description": "Software Implementation",
+          "quantity": 1,
+          "rate": 3200,
+          "amount": 3200
+        }
+      ]
+    },
+    {
+      "id": "INV-004",
+      "client": "Global Services Ltd",
+      "amount": 4500,
+      "status": "draft",
+      "date": "2024-01-12",
+      "dueDate": "2024-02-12",
+      "items": [
+        {
+          "description": "Project Management",
+          "quantity": 1,
+          "rate": 4500,
+          "amount": 4500
+        }
+      ]
+    }
+  ]
+} 

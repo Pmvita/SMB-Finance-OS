@@ -1,0 +1,63 @@
+{
+  "metrics": {
+    "totalRevenue": 45230,
+    "outstandingInvoices": 8450,
+    "monthlyExpenses": 12800,
+    "cashFlow": 32430,
+    "revenueChange": 12.5,
+    "expenseChange": 8.1,
+    "cashFlowChange": 15.3
+  },
+  "quickActions": [
+    {
+      "id": "create-invoice",
+      "title": "Create Invoice",
+      "icon": "add-circle-outline",
+      "color": "#10b981"
+    },
+    {
+      "id": "add-expense",
+      "title": "Add Expense",
+      "icon": "calculator-outline",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "send-payment",
+      "title": "Send Payment",
+      "icon": "card-outline",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "view-reports",
+      "title": "View Reports",
+      "icon": "bar-chart-outline",
+      "color": "#8b5cf6"
+    }
+  ],
+  "recentActivity": [
+    {
+      "id": "act-001",
+      "type": "invoice_paid",
+      "title": "Invoice #INV-001 paid",
+      "subtitle": "$2,500 • 2 hours ago",
+      "icon": "checkmark-circle",
+      "color": "#10b981"
+    },
+    {
+      "id": "act-002",
+      "type": "expense_added",
+      "title": "Expense added",
+      "subtitle": "$150 • Office supplies",
+      "icon": "receipt",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "act-003",
+      "type": "payment_received",
+      "title": "Payment received",
+      "subtitle": "$1,200 • Client ABC",
+      "icon": "card",
+      "color": "#3b82f6"
+    }
+  ]
+} 

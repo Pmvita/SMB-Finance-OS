@@ -1,0 +1,57 @@
+{
+  "totalBalance": 48930,
+  "balanceChange": 4250,
+  "changePercent": 9.5,
+  "accounts": [
+    {
+      "id": "acc-001",
+      "name": "Main Business Account",
+      "balance": 25430,
+      "currency": "USD",
+      "type": "checking",
+      "accountNumber": "****1234"
+    },
+    {
+      "id": "acc-002",
+      "name": "Savings Account",
+      "balance": 15000,
+      "currency": "USD",
+      "type": "savings",
+      "accountNumber": "****5678"
+    },
+    {
+      "id": "acc-003",
+      "name": "Tax Reserve",
+      "balance": 8500,
+      "currency": "USD",
+      "type": "reserve",
+      "accountNumber": "****9012"
+    }
+  ],
+  "recentTransactions": [
+    {
+      "id": "TXN-001",
+      "type": "credit",
+      "amount": 2500,
+      "description": "Invoice payment - TechStart",
+      "date": "2024-01-15",
+      "account": "Main Business Account"
+    },
+    {
+      "id": "TXN-002",
+      "type": "debit",
+      "amount": 150,
+      "description": "Office supplies",
+      "date": "2024-01-14",
+      "account": "Main Business Account"
+    },
+    {
+      "id": "TXN-003",
+      "type": "credit",
+      "amount": 1800,
+      "description": "Invoice payment - Green Energy",
+      "date": "2024-01-13",
+      "account": "Main Business Account"
+    }
+  ]
+} 

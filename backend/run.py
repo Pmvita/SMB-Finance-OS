@@ -51,12 +51,14 @@ def test():
     pytest.main(['tests/'])
 
 if __name__ == '__main__':
-    # Run database migrations
+    # Run database migrations (skip if database not available)
     with app.app_context():
         try:
             upgrade()
+            print("✅ Database migrations completed successfully!")
         except Exception as e:
-            print(f"Migration error (this is normal for first run): {e}")
+            print(f"⚠️  Database migration skipped (this is normal for mockData testing): {e}")
+            print("📊 MockData endpoints will still work without database")
     
     # Run the application
     port = int(os.environ.get('PORT', 5000))
@@ -65,6 +67,14 @@ if __name__ == '__main__':
     print(f"🚀 Starting SMB Finance OS API on port {port}")
     print(f"📊 Health check: http://localhost:{port}/health")
     print(f"🔗 API Base URL: http://localhost:{port}/api/v1")
+    print(f"📋 MockData endpoints:")
+    print(f"   - http://localhost:{port}/api/mockdata (all data)")
+    print(f"   - http://localhost:{port}/api/mockdata/dashboard")
+    print(f"   - http://localhost:{port}/api/mockdata/invoices")
+    print(f"   - http://localhost:{port}/api/mockdata/expenses")
+    print(f"   - http://localhost:{port}/api/mockdata/wallet")
+    print(f"   - http://localhost:{port}/api/mockdata/profile")
+    print(f"   - http://localhost:{port}/api/mockdata/user")
     
     app.run(
         host='0.0.0.0',

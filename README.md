@@ -61,13 +61,32 @@ cd smb-finance-os
 ### 2. Backend Setup
 ```bash
 cd backend
-python -m venv venv
+
+# Create and activate virtual environment
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies (may take a few minutes due to psycopg2 compilation)
 pip install -r requirements.txt
-cp .env.example .env
+
+# If psycopg2-binary fails to install, try:
+# pip install psycopg2-binary --no-binary :all:
+
+# Copy environment file and configure
+cp env.example .env
 # Edit .env with your database credentials
+
+# Option 1: Run with mock data (no database required)
+export MOCK_DATA_MODE=true
+python run.py
+
+# Option 2: Run with database (requires PostgreSQL)
 python run.py
 ```
+
+**Note**: The backend supports two modes:
+- **Mock Data Mode**: No database required, uses pre-configured mock data
+- **Database Mode**: Requires PostgreSQL setup with proper credentials in `.env`
 
 ### 3. Frontend Setup
 ```bash
