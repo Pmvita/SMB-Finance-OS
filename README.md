@@ -54,7 +54,7 @@ SMB Finance OS is designed to serve the financial needs of underserved small and
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-org/smb-finance-os.git
+git clone https://github.com/pmvita/smb-finance-os.git
 cd smb-finance-os
 ```
 
@@ -151,14 +151,97 @@ smb-finance-os/
 ├── docs/             # Documentation
 ├── tests/            # Test suites
 ├── scripts/          # Deployment scripts
-└── docker/           # Docker configurations
+├── docker/           # Docker configurations
+└── .env              # Root environment variables (shared across all apps)
 ```
 
-### Environment Variables
-Copy the example environment files and configure:
-- `backend/.env.example` → `backend/.env`
-- `frontend/.env.example` → `frontend/.env.local`
-- `mobile-app/.env.example` → `mobile-app/.env`
+### Environment Variables (Single Root .env File)
+
+**🎯 Single Source of Truth**: All environment variables are now managed in one place - the root `.env` file.
+
+#### Setup Instructions
+
+1. **Copy the example file**:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Edit the `.env` file** with your actual values:
+   ```bash
+   # Edit the root .env file with your configuration
+   nano .env  # or use your preferred editor
+   ```
+
+3. **All applications will automatically load** from the root `.env` file:
+   - ✅ **Backend**: Automatically loads from root `.env`
+   - ✅ **Frontend**: Automatically loads from root `.env` 
+   - ✅ **Mobile App**: Automatically loads from root `.env`
+
+#### Environment Variables Overview
+
+```bash
+# =============================================================================
+# FLASK/BACKEND CONFIGURATION
+# =============================================================================
+FLASK_APP=run.py
+FLASK_ENV=development
+SECRET_KEY=your-super-secret-key-change-this-in-production
+DEBUG=True
+
+# =============================================================================
+# DATABASE CONFIGURATION
+# =============================================================================
+DATABASE_URL=postgresql://username:password@localhost:5432/smb_finance_os
+DATABASE_TEST_URL=postgresql://username:password@localhost:5432/smb_finance_os_test
+
+# =============================================================================
+# JWT CONFIGURATION
+# =============================================================================
+JWT_SECRET_KEY=your-jwt-secret-key-change-this-in-production
+JWT_ACCESS_TOKEN_EXPIRES=900
+JWT_REFRESH_TOKEN_EXPIRES=604800
+
+# =============================================================================
+# FRONTEND CONFIGURATION (Next.js)
+# =============================================================================
+NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
+NEXT_PUBLIC_APP_NAME=SMB Finance OS
+NEXT_PUBLIC_APP_VERSION=1.0.0
+
+# =============================================================================
+# MOBILE APP CONFIGURATION (React Native/Expo)
+# =============================================================================
+API_BASE_URL=http://localhost:5000/api/v1
+API_TIMEOUT=30000
+
+# =============================================================================
+# EXTERNAL SERVICES
+# =============================================================================
+STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key_here
+STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
+
+# =============================================================================
+# FEATURE FLAGS (Shared)
+# =============================================================================
+NEXT_PUBLIC_ENABLE_ANALYTICS=true
+NEXT_PUBLIC_ENABLE_MOCK_DATA=false
+ENABLE_MOCK_DATA=false
+ENABLE_ANALYTICS=true
+```
+
+#### Benefits of Single Root .env
+
+- 🎯 **Single Source of Truth**: All environment variables in one place
+- 🔄 **Automatic Sync**: Changes apply to all applications instantly
+- 🚀 **Simplified Setup**: No need to manage multiple .env files
+- 🛡️ **Better Security**: Centralized environment variable management
+- 📝 **Easier Maintenance**: One file to update for all environments
+
+#### Application-Specific Loading
+
+- **Backend**: Uses `python-dotenv` to load from root `.env`
+- **Frontend**: Uses `@next/env` to load from root `.env`
+- **Mobile App**: Uses custom script to load from root `.env` into `app.json`
 
 ### Running Tests
 ```bash
