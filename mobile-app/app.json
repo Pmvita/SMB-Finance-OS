@@ -26,6 +26,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "API_BASE_URL": "http://localhost:5000/api/v1",
+      "API_TIMEOUT": "30000",
+      "STRIPE_PUBLISHABLE_KEY": "",
+      "SENTRY_DSN": "",
+      "ENABLE_MOCK_DATA": "false",
+      "ENABLE_ANALYTICS": "true"
     }
   }
 }
