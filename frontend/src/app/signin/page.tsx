@@ -12,7 +12,6 @@ import {
   UserIcon,
   ShieldCheckIcon,
   LockClosedIcon,
-  InformationCircleIcon,
   Cog6ToothIcon,
   CodeBracketIcon
 } from '@heroicons/react/24/outline';
@@ -393,39 +392,6 @@ export default function SignIn() {
               Sign up
             </Link>
           </p>
-        </motion.div>
-
-        {/* Demo Credentials */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-xl p-6 hover:bg-slate-700/70 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md"
-          onClick={() => {
-            setValue('email', 'demo@smbfinanceos.com');
-            setValue('password', 'demo123456');
-          }}
-          title="Click to fill demo credentials"
-        >
-          <h3 className="text-sm font-semibold text-slate-200 mb-3 flex items-center">
-            <InformationCircleIcon className="h-4 w-4 mr-2" />
-            Demo Credentials
-          </h3>
-          <div className="space-y-2 text-sm text-slate-300">
-            <div className="flex items-center justify-between">
-              <span className="font-medium">Email:</span>
-              <span className="font-mono text-emerald-400">demo@smbfinanceos.com</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="font-medium">Password:</span>
-              <span className="font-mono text-emerald-400">demo123456</span>
-            </div>
-            <div className="mt-3 p-2 bg-slate-600/50 rounded-lg">
-              <p className="text-xs text-slate-300">
-                💡 Try <strong>demo@error.com</strong> to see error handling
-              </p>
-            </div>
-          </div>
         </motion.div>
       </div>
     </div>
