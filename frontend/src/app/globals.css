@@ -1,0 +1,570 @@
+@import "tailwindcss";
+@import "../../../shared/styles/colors.css";
+@import "../../../shared/styles/buttons.css";
+
+/* SMB Finance OS Color Theme - Modern Mobile-First Design */
+:root {
+  /* Primary Brand Colors - Updated to Green */
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-200: #bbf7d0;
+  --primary-300: #86efac;
+  --primary-400: #4ade80;
+  --primary-500: #22c55e;  /* Main brand green */
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --primary-800: #166534;
+  --primary-900: #14532d;
+
+  /* Success Green - Same as primary now */
+  --success-50: #f0fdf4;
+  --success-100: #dcfce7;
+  --success-200: #bbf7d0;
+  --success-300: #86efac;
+  --success-400: #4ade80;
+  --success-500: #22c55e;  /* Growth green */
+  --success-600: #16a34a;
+  --success-700: #15803d;
+  --success-800: #166534;
+  --success-900: #14532d;
+
+  /* Warning Orange - Attention & Alerts */
+  --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-300: #fcd34d;
+  --warning-400: #fbbf24;
+  --warning-500: #f59e0b;  /* Alert orange */
+  --warning-600: #d97706;
+  --warning-700: #b45309;
+  --warning-800: #92400e;
+  --warning-900: #78350f;
+
+  /* Danger Red - Errors & Critical */
+  --danger-50: #fef2f2;
+  --danger-100: #fee2e2;
+  --danger-200: #fecaca;
+  --danger-300: #fca5a5;
+  --danger-400: #f87171;
+  --danger-500: #ef4444;  /* Error red */
+  --danger-600: #dc2626;
+  --danger-700: #b91c1c;
+  --danger-800: #991b1b;
+  --danger-900: #7f1d1d;
+
+  /* Neutral Grays - Text & Backgrounds */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+
+  /* Accent Colors - Modern Vibrant Accents */
+  --accent-purple: #8b5cf6;  /* Modern purple for premium features */
+  --accent-teal: #06b6d4;    /* Modern teal for professional services */
+  --accent-amber: #f59e0b;   /* Modern amber for payments */
+  --accent-emerald: #10b981; /* Modern emerald for success states */
+  --accent-indigo: #6366f1;  /* Modern indigo for tech features */
+  --accent-rose: #f43f5e;    /* Modern rose for special alerts */
+}
+
+/* Brand Gradients */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+}
+
+.bg-success-gradient {
+  background: linear-gradient(135deg, var(--success-500) 0%, var(--success-700) 100%);
+}
+
+.bg-warning-gradient {
+  background: linear-gradient(135deg, var(--warning-500) 0%, var(--warning-700) 100%);
+}
+
+.bg-accent-gradient {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-indigo) 100%);
+}
+
+/* Text Colors */
+.text-brand {
+  color: var(--primary-600);
+}
+
+.text-success {
+  color: var(--success-600);
+}
+
+.text-warning {
+  color: var(--warning-600);
+}
+
+.text-danger {
+  color: var(--danger-600);
+}
+
+.text-accent-purple {
+  color: var(--accent-purple);
+}
+
+.text-accent-teal {
+  color: var(--accent-teal);
+}
+
+.text-accent-indigo {
+  color: var(--accent-indigo);
+}
+
+.text-accent-rose {
+  color: var(--accent-rose);
+}
+
+/* Border Colors */
+.border-brand {
+  border-color: var(--primary-300);
+}
+
+.border-success {
+  border-color: var(--success-300);
+}
+
+.border-warning {
+  border-color: var(--warning-300);
+}
+
+.border-danger {
+  border-color: var(--danger-300);
+}
+
+.border-accent-purple {
+  border-color: var(--accent-purple);
+}
+
+.border-accent-teal {
+  border-color: var(--accent-teal);
+}
+
+/* Focus States */
+.focus-brand:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.focus-success:focus {
+  border-color: var(--success-500);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.focus-accent:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Button Styles - Modern Mobile-First */
+.btn-primary {
+  background-color: var(--primary-600);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--neutral-100);
+  color: var(--neutral-700);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  border: 1px solid var(--neutral-300);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-200);
+  border-color: var(--neutral-400);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background-color: var(--success-600);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-success:hover {
+  background-color: var(--success-700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.btn-warning {
+  background-color: var(--warning-600);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-warning:hover {
+  background-color: var(--warning-700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-indigo) 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-accent:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Card Styles - Modern Mobile-First */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid var(--neutral-200);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.card-brand {
+  border-left: 4px solid var(--primary-500);
+}
+
+.card-success {
+  border-left: 4px solid var(--success-500);
+}
+
+.card-warning {
+  border-left: 4px solid var(--warning-500);
+}
+
+.card-accent {
+  border-left: 4px solid var(--accent-purple);
+}
+
+/* Form Styles - Modern Mobile-First */
+.input-brand {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--neutral-300);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+.input-brand:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.input-success {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--success-300);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+.input-success:focus {
+  border-color: var(--success-500);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.input-warning {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--warning-300);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+.input-warning:focus {
+  border-color: var(--warning-500);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.input-danger {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--danger-300);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+.input-danger:focus {
+  border-color: var(--danger-500);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Status Indicators - Modern Mobile-First */
+.status-success {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--success-100);
+  color: var(--success-800);
+  border: 1px solid var(--success-200);
+}
+
+.status-warning {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--warning-100);
+  color: var(--warning-800);
+  border: 1px solid var(--warning-200);
+}
+
+.status-danger {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--danger-100);
+  color: var(--danger-800);
+  border: 1px solid var(--danger-200);
+}
+
+.status-neutral {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--neutral-100);
+  color: var(--neutral-800);
+  border: 1px solid var(--neutral-200);
+}
+
+.status-accent {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-indigo) 100%);
+  color: white;
+  border: none;
+}
+
+/* Animations - Modern Mobile-First */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom Scrollbar - Modern Mobile-First */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-400);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--primary-200);
+  color: var(--primary-900);
+}
+
+/* Focus Outline for Accessibility */
+*:focus {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-warning,
+  .btn-accent {
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: 1rem;
+  }
+  
+  .card {
+    border-radius: 1.25rem;
+    margin: 0.5rem;
+  }
+  
+  .input-brand,
+  .input-success,
+  .input-warning,
+  .input-danger {
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    border-radius: 1rem;
+  }
+  
+  .status-success,
+  .status-warning,
+  .status-danger,
+  .status-neutral,
+  .status-accent {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 1.25rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode color overrides can be added here */
+  }
+}

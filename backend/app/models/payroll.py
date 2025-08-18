@@ -143,7 +143,7 @@ class Payroll(db.Model):
     
     # Additional Data
     notes = db.Column(db.Text)
-    metadata = db.Column(JSON, default={})
+    payroll_metadata = db.Column(JSON, default={})
     
     # Timestamps
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -209,7 +209,7 @@ class Payroll(db.Model):
             'payment_method': self.payment_method,
             'payment_date': self.payment_date.isoformat() if self.payment_date else None,
             'notes': self.notes,
-            'metadata': self.metadata,
+            'metadata': self.payroll_metadata,
             'business_id': str(self.business_id),
             'employee_id': str(self.employee_id),
             'created_at': self.created_at.isoformat() if self.created_at else None,

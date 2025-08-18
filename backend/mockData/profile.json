@@ -1,0 +1,52 @@
+{
+  "stats": {
+    "invoices": 24,
+    "balance": 48930,
+    "expenses": 12
+  },
+  "settings": [
+    {
+      "title": "Business Profile",
+      "icon": "business",
+      "color": "#10b981",
+      "action": "navigate"
+    },
+    {
+      "title": "Security Settings",
+      "icon": "shield-checkmark",
+      "color": "#3b82f6",
+      "action": "navigate"
+    },
+    {
+      "title": "Notifications",
+      "icon": "notifications",
+      "color": "#f59e0b",
+      "action": "toggle",
+      "value": true
+    },
+    {
+      "title": "Payment Methods",
+      "icon": "card",
+      "color": "#8b5cf6",
+      "action": "navigate"
+    },
+    {
+      "title": "Tax Settings",
+      "icon": "calculator",
+      "color": "#ef4444",
+      "action": "navigate"
+    },
+    {
+      "title": "Support",
+      "icon": "help-circle",
+      "color": "#64748b",
+      "action": "navigate"
+    },
+    {
+      "title": "About",
+      "icon": "information-circle",
+      "color": "#06b6d4",
+      "action": "navigate"
+    }
+  ]
+} 

@@ -9,8 +9,14 @@ class DevelopmentConfig:
     DEBUG = True
     TESTING = False
     
-    # Database Configuration
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'postgresql://localhost/smb_finance_os_dev')
+    # Database Configuration - Use SQLite as fallback for development
+    DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://localhost/smb_finance_os_dev')
+    if DATABASE_URL.startswith('postgresql://') and 'localhost' in DATABASE_URL:
+        # Fallback to SQLite for development if PostgreSQL is not configured
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+    else:
+        SQLALCHEMY_DATABASE_URI = DATABASE_URL
+    
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ENGINE_OPTIONS = {
         'pool_pre_ping': True,

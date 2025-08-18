@@ -7,9 +7,12 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from root .env file
+root_dir = Path(__file__).parent.parent.parent
+env_path = root_dir / '.env'
+load_dotenv(env_path)
 
 # Initialize extensions
 db = SQLAlchemy()
@@ -34,6 +37,8 @@ def create_app(config_name=None):
         app.config.from_object('config.production.ProductionConfig')
     elif config_name == 'testing':
         app.config.from_object('config.testing.TestingConfig')
+    elif config_name == 'mockdata':
+        app.config.from_object('config.mockdata.MockDataConfig')
     else:
         app.config.from_object('config.development.DevelopmentConfig')
     
@@ -43,8 +48,17 @@ def create_app(config_name=None):
     jwt.init_app(app)
     limiter.init_app(app)
     
-    # Configure CORS
-    CORS(app, origins=app.config.get('CORS_ORIGINS', ['http://localhost:3000']))
+    # Configure CORS - More permissive for development
+    cors_origins = app.config.get('CORS_ORIGINS', [
+        'http://localhost:3000',  # Frontend
+        'http://localhost:3001',  # Frontend alternative port
+        'http://localhost:8081',  # Expo development server
+        'http://192.168.2.50:8081',  # Expo on local network
+        'exp://192.168.2.50:8081',   # Expo protocol
+        'http://localhost:19006',     # Expo web
+        'http://localhost:19000',     # Expo dev tools
+    ])
+    CORS(app, origins=cors_origins, supports_credentials=True)
     
     # Register blueprints
     from app.routes.auth import auth_bp
@@ -57,6 +71,7 @@ def create_app(config_name=None):
     from app.routes.payroll import payroll_bp
     from app.routes.users import users_bp
     from app.routes.businesses import businesses_bp
+    from app.routes.mockdata import mockdata_bp
     
     app.register_blueprint(auth_bp, url_prefix='/api/v1/auth')
     app.register_blueprint(invoices_bp, url_prefix='/api/v1/invoices')
@@ -68,6 +83,7 @@ def create_app(config_name=None):
     app.register_blueprint(payroll_bp, url_prefix='/api/v1/payroll')
     app.register_blueprint(users_bp, url_prefix='/api/v1/users')
     app.register_blueprint(businesses_bp, url_prefix='/api/v1/businesses')
+    app.register_blueprint(mockdata_bp)  # No prefix for mockdata routes
     
     # Error handlers
     @app.errorhandler(404)

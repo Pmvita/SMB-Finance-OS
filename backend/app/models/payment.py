@@ -34,7 +34,7 @@ class Payment(db.Model):
     failure_reason = db.Column(db.Text)
     
     # Additional Data
-    metadata = db.Column(JSON, default={})
+    payment_metadata = db.Column(JSON, default={})
     
     # Timestamps
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -86,7 +86,7 @@ class Payment(db.Model):
             'reference': self.reference,
             'processed_at': self.processed_at.isoformat() if self.processed_at else None,
             'failure_reason': self.failure_reason,
-            'metadata': self.metadata,
+            'metadata': self.payment_metadata,
             'business_id': str(self.business_id),
             'wallet_id': str(self.wallet_id) if self.wallet_id else None,
             'created_at': self.created_at.isoformat() if self.created_at else None,

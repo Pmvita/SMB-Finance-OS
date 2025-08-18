@@ -1,0 +1,8 @@
+{
+  "user": "user.json",
+  "dashboard": "dashboard.json",
+  "invoices": "invoices.json",
+  "expenses": "expenses.json",
+  "wallet": "wallet.json",
+  "profile": "profile.json"
+} 
