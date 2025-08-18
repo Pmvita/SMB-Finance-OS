@@ -132,6 +132,12 @@ class MockDataService {
     return MockDataService.instance;
   }
 
+  // Add method to clear cache and force refresh
+  public clearCache(): void {
+    this.mockData = null;
+    this.isLoaded = false;
+  }
+
   private async loadMockData(): Promise<MockData> {
     if (this.isLoaded && this.mockData) {
       return this.mockData;
@@ -195,15 +201,20 @@ class MockDataService {
     return new Promise(async (resolve) => {
       setTimeout(async () => {
         try {
+          console.log('Mobile App: Attempting to fetch user data from backend...');
           const response = await fetch('http://localhost:5001/api/mockdata/user');
+          console.log('Mobile App: User API response status:', response.status);
           if (response.ok) {
             const data = await response.json();
+            console.log('Mobile App: Successfully fetched user data:', data);
             resolve(data);
           } else {
+            console.log('Mobile App: User API failed, falling back to cached data');
             const data = await this.loadMockData();
             resolve(data.user);
           }
         } catch (error) {
+          console.log('Mobile App: User API error, falling back to cached data:', error);
           const data = await this.loadMockData();
           resolve(data.user);
         }

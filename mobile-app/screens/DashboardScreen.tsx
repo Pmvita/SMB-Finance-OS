@@ -7,6 +7,7 @@ import MockDataService from '../services/mockDataService';
 const DashboardScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [dashboardData, setDashboardData] = useState<any>(null);
+  const [userData, setUserData] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -17,8 +18,20 @@ const DashboardScreen = () => {
     try {
       setIsLoading(true);
       const mockService = MockDataService.getInstance();
-      const data = await mockService.fetchDashboard();
-      setDashboardData(data);
+      
+      console.log('DashboardScreen: Starting to load dashboard and user data...');
+      
+      // Load both dashboard and user data
+      const [dashboard, user] = await Promise.all([
+        mockService.fetchDashboard(),
+        mockService.fetchUser()
+      ]);
+      
+      console.log('DashboardScreen: Dashboard data loaded:', dashboard);
+      console.log('DashboardScreen: User data loaded:', user);
+      
+      setDashboardData(dashboard);
+      setUserData(user);
     } catch (error) {
       console.error('Error loading dashboard data:', error);
     } finally {
@@ -95,7 +108,7 @@ const DashboardScreen = () => {
       >
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.greeting}>Good morning, Business Owner</Text>
+          <Text style={styles.greeting}>Good morning, {userData?.name || 'Business Owner'}</Text>
           <Text style={styles.subtitle}>Here's your financial overview</Text>
         </View>
 

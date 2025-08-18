@@ -23,6 +23,7 @@ interface Language {
 const ProfileScreen: React.FC<ProfileScreenProps> = ({ onLogout, route }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [profileData, setProfileData] = useState<any>(null);
+  const [userData, setUserData] = useState<any>(null);
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [languageModalVisible, setLanguageModalVisible] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
@@ -63,8 +64,20 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onLogout, route }) => {
     try {
       setIsLoading(true);
       const mockService = MockDataService.getInstance();
-      const data = await mockService.fetchProfile();
-      setProfileData(data);
+      
+      console.log('ProfileScreen: Starting to load profile and user data...');
+      
+      // Load both profile and user data
+      const [profile, user] = await Promise.all([
+        mockService.fetchProfile(),
+        mockService.fetchUser()
+      ]);
+      
+      console.log('ProfileScreen: Profile data loaded:', profile);
+      console.log('ProfileScreen: User data loaded:', user);
+      
+      setProfileData(profile);
+      setUserData(user);
     } catch (error) {
       console.error('Error loading profile data:', error);
     } finally {
@@ -256,9 +269,9 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onLogout, route }) => {
               <Ionicons name="person" size={40} color="#ffffff" />
             </View>
             <View style={styles.userInfo}>
-              <Text style={styles.userName}>Dev Business Owner</Text>
-              <Text style={styles.userEmail}>dev@smbfinanceos.com</Text>
-              <Text style={styles.businessName}>Dev Business Solutions</Text>
+              <Text style={styles.userName}>{userData?.name || 'Loading...'}</Text>
+              <Text style={styles.userEmail}>{userData?.email || 'Loading...'}</Text>
+              <Text style={styles.businessName}>{userData?.businessName || 'Loading...'}</Text>
             </View>
           </View>
         </View>
@@ -267,7 +280,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ onLogout, route }) => {
         {refreshing && (
           <View style={styles.refreshIndicator}>
             <ActivityIndicator size="small" color="#10b981" />
-            <Text style={styles.refreshText}>Refreshing profile & session...</Text>
+            <Text style={styles.refreshText}>Refreshing profile & user data...</Text>
           </View>
         )}
 
@@ -493,6 +506,7 @@ const styles = StyleSheet.create({
   profileInfo: {
     flexDirection: 'row',
     alignItems: 'center',
+    flex: 1,
   },
   avatar: {
     width: 80,
