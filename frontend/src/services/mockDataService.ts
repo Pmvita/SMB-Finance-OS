@@ -132,6 +132,12 @@ class MockDataService {
     return MockDataService.instance;
   }
 
+  // Add method to clear cache and force refresh
+  public clearCache(): void {
+    this.mockData = null;
+    this.isLoaded = false;
+  }
+
   private async loadMockData(): Promise<MockData> {
     if (this.isLoaded && this.mockData) {
       return this.mockData;
