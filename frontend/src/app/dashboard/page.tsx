@@ -33,6 +33,21 @@ export default function Dashboard() {
   const [userData, setUserData] = useState<MockData['user'] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // Function to get appropriate greeting based on time of day
+  const getTimeBasedGreeting = () => {
+    const hour = new Date().getHours();
+    
+    if (hour >= 5 && hour < 12) {
+      return 'Good morning';
+    } else if (hour >= 12 && hour < 17) {
+      return 'Good afternoon';
+    } else if (hour >= 17 && hour < 21) {
+      return 'Good evening';
+    } else {
+      return 'Good night';
+    }
+  };
+
   useEffect(() => {
     loadDashboardData();
   }, []);
@@ -151,7 +166,7 @@ export default function Dashboard() {
           className="mb-8"
         >
           <h1 className="text-3xl font-bold text-slate-800 mb-2">
-            Welcome back, {userData.name}!
+            {getTimeBasedGreeting()}, {userData.name}!
           </h1>
                       <p className="text-slate-600">Here&apos;s your financial overview for today</p>
         </motion.div>

@@ -10,6 +10,21 @@ const DashboardScreen = () => {
   const [userData, setUserData] = useState<any>(null);
   const [refreshing, setRefreshing] = useState(false);
 
+  // Function to get appropriate greeting based on time of day
+  const getTimeBasedGreeting = () => {
+    const hour = new Date().getHours();
+    
+    if (hour >= 5 && hour < 12) {
+      return 'Good morning';
+    } else if (hour >= 12 && hour < 17) {
+      return 'Good afternoon';
+    } else if (hour >= 17 && hour < 21) {
+      return 'Good evening';
+    } else {
+      return 'Good night';
+    }
+  };
+
   useEffect(() => {
     loadDashboardData();
   }, []);
@@ -108,7 +123,7 @@ const DashboardScreen = () => {
       >
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.greeting}>Good morning, {userData?.name || 'Business Owner'}</Text>
+          <Text style={styles.greeting}>{getTimeBasedGreeting()}, {userData?.name || 'Business Owner'}</Text>
           <Text style={styles.subtitle}>Here's your financial overview</Text>
         </View>
 
