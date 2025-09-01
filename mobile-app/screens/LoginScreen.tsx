@@ -108,7 +108,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin, onSignup }) => {
               </View>
             </View>
             <Text style={styles.title}>Welcome Back</Text>
-            <Text style={styles.subtitle}>Sign in to your SMB Finance OS account</Text>
+            <Text style={styles.subtitle}>Sign in to your Trident Financial OS account</Text>
           </View>
 
           {/* Email/Password Form */}

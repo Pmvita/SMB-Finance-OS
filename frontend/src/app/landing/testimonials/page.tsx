@@ -132,7 +132,7 @@ export default function TestimonialsPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <Link href="/landing" className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">SMB Finance OS</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Trident Financial OS</h1>
               </Link>
               
               <div className="hidden lg:flex items-center space-x-6">
@@ -178,7 +178,7 @@ export default function TestimonialsPage() {
               </h1>
               <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Discover how businesses around the world are transforming their financial operations 
-                with SMB Finance OS. Real stories from real customers.
+                with Trident Financial OS. Real stories from real customers.
               </p>
             </motion.div>
           </div>

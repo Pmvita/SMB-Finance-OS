@@ -102,6 +102,6 @@ def create_app(config_name=None):
     # Health check endpoint
     @app.route('/health')
     def health_check():
-        return {'status': 'healthy', 'service': 'SMB Finance OS API'}
+        return {'status': 'healthy', 'service': 'Trident Financial OS API'}
     
     return app

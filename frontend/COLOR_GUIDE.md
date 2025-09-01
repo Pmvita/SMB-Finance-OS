@@ -1,9 +1,9 @@
-# SMB Finance OS Color Guide
+# Trident Financial OS Color Guide
 
-## 🎨 Brand Color Palette
+## 🎨 Brand Color Palette - Poseidon-inspired
 
 ### Primary Colors
-Our primary color palette is designed to convey **trust**, **stability**, and **growth** - essential qualities for a financial platform.
+Our primary color palette is designed to convey **ocean power**, **financial clarity**, and **treasure prosperity** - essential qualities for a financial platform inspired by Poseidon.
 
 #### Primary Blue (`#3b82f6`)
 - **Usage**: Main brand color, primary buttons, links, navigation
@@ -234,4 +234,4 @@ Our color choices consider cultural associations:
 
 ---
 
-*This color guide ensures consistent, professional, and trustworthy visual identity for SMB Finance OS across all platforms and markets.* 
+*This color guide ensures consistent, professional, and trustworthy visual identity for Trident Financial OS across all platforms and markets.* 

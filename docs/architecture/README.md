@@ -1,10 +1,10 @@
 # Architecture Guide
 
-This document outlines the technical architecture and design decisions for SMB Finance OS.
+This document outlines the technical architecture and design decisions for Trident Financial OS.
 
 ## 🏗️ System Overview
 
-SMB Finance OS is built as a microservices-ready monolith with clear separation of concerns, designed to scale horizontally as the business grows.
+Trident Financial OS is built as a microservices-ready monolith with clear separation of concerns, designed to scale horizontally as the business grows.
 
 ## 📊 Architecture Diagram
 

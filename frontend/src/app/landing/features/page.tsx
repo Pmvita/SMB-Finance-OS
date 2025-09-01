@@ -159,7 +159,7 @@ export default function FeaturesPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <Link href="/landing" className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">SMB Finance OS</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Trident Financial OS</h1>
               </Link>
               
               <div className="hidden lg:flex items-center space-x-6">

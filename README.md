@@ -1,15 +1,15 @@
-# SMB Finance OS 🚀
+# Trident Financial OS 🚀
 
 > The Financial Operating System for Global Small and Medium Businesses
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-org/smb-finance-os)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-org/trident-financial-os)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Node.js](https://img.shields.io/badge/node.js-18+-green.svg)](https://nodejs.org/)
 
 ## 🌍 Mission
 
-SMB Finance OS is designed to serve the financial needs of underserved small and medium-sized businesses across Africa, Southeast Asia, and other emerging markets. We're building the "Stripe for Africa" and "QuickBooks for Southeast Asia" - a comprehensive fintech infrastructure solution from day one.
+Trident Financial OS is designed to serve the financial needs of underserved small and medium-sized businesses across Africa, Southeast Asia, and other emerging markets. We're building the "Stripe for Africa" and "QuickBooks for Southeast Asia" - a comprehensive fintech infrastructure solution from day one.
 
 ## ✨ Features
 
@@ -54,8 +54,8 @@ SMB Finance OS is designed to serve the financial needs of underserved small and
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/pmvita/smb-finance-os.git
-cd smb-finance-os
+git clone https://github.com/pmvita/trident-financial-os.git
+cd trident-financial-os
 ```
 
 ### 2. Backend Setup
@@ -137,7 +137,7 @@ npx expo start
 
 ### Project Structure
 ```
-smb-finance-os/
+trident-financial-os/
 ├── backend/          # Flask API server
 ├── frontend/         # Next.js web application
 ├── mobile-app/       # React Native mobile app
@@ -185,8 +185,8 @@ DEBUG=True
 # =============================================================================
 # DATABASE CONFIGURATION
 # =============================================================================
-DATABASE_URL=postgresql://username:password@localhost:5432/smb_finance_os
-DATABASE_TEST_URL=postgresql://username:password@localhost:5432/smb_finance_os_test
+DATABASE_URL=postgresql://username:password@localhost:5432/trident_financial_os
+DATABASE_TEST_URL=postgresql://username:password@localhost:5432/trident_financial_os_test
 
 # =============================================================================
 # JWT CONFIGURATION
@@ -199,7 +199,7 @@ JWT_REFRESH_TOKEN_EXPIRES=604800
 # FRONTEND CONFIGURATION (Next.js)
 # =============================================================================
 NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
-NEXT_PUBLIC_APP_NAME=SMB Finance OS
+NEXT_PUBLIC_APP_NAME=Trident Financial OS
 NEXT_PUBLIC_APP_VERSION=1.0.0
 
 # =============================================================================
@@ -265,19 +265,6 @@ cd mobile-app && npm test
 - `GET/POST /credit` - Credit scoring
 - `GET/POST /payroll` - Payroll management
 
-## 🚀 Deployment
-
-### Vercel Deployment (Frontend)
-The frontend is optimized for Vercel deployment:
-
-1. Connect your GitHub repository to Vercel
-2. Set environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
-
-### Backend Deployment
-- **Development**: Local Flask server
-- **Staging**: Docker containers on cloud provider
-- **Production**: Kubernetes or managed services
 
 ## 🤝 Contributing
 
@@ -302,9 +289,9 @@ For complete details, see our [Contributing Guide](/docs/contributing.md) and [A
 ## 🆘 Support
 
 - **Documentation**: [docs/](/docs/)
-- **Issues**: [GitHub Issues](https://github.com/your-org/smb-finance-os/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-org/smb-finance-os/discussions)
-- **Email**: support@smbfinanceos.com
+- **Issues**: [GitHub Issues](https://github.com/your-org/trident-financial-os/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-org/trident-financial-os/discussions)
+- **Email**: support@tridentfinancialos.com
 
 ## 🙏 Acknowledgments
 

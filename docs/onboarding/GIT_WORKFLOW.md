@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-This guide covers the Git workflow and GitHub practices for the SMB Finance OS project, ensuring consistent collaboration between team members.
+This guide covers the Git workflow and GitHub practices for the Trident Financial OS project, ensuring consistent collaboration between team members.
 
 ## 📋 Prerequisites
 
@@ -379,4 +379,4 @@ git stash drop stash@{0}
 
 ---
 
-*This workflow ensures consistent, professional development practices for the SMB Finance OS project.* 
+*This workflow ensures consistent, professional development practices for the Trident Financial OS project.* 

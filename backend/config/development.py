@@ -10,7 +10,7 @@ class DevelopmentConfig:
     TESTING = False
     
     # Database Configuration - Use SQLite as fallback for development
-    DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://localhost/smb_finance_os_dev')
+    DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://localhost/trident_financial_os_dev')
     if DATABASE_URL.startswith('postgresql://') and 'localhost' in DATABASE_URL:
         # Fallback to SQLite for development if PostgreSQL is not configured
         SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
@@ -55,7 +55,7 @@ class DevelopmentConfig:
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
     AWS_REGION = os.getenv('AWS_REGION', 'us-east-1')
-    S3_BUCKET = os.getenv('S3_BUCKET', 'smb-finance-os-uploads-dev')
+    S3_BUCKET = os.getenv('S3_BUCKET', 'trident-financial-os-uploads-dev')
     
     # Redis Configuration
     REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')

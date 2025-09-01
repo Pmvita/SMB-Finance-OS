@@ -1,4 +1,4 @@
-// SMB Finance OS Shared Styles
+// Trident Financial OS Shared Styles
 // Used by both frontend and mobile-app
 
 export * from '../constants/colors';

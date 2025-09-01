@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Installing SMB Finance OS Backend Dependencies..."
+echo "🚀 Installing Trident Financial OS Backend Dependencies..."
 
 # Check if virtual environment exists
 if [ ! -d "venv" ]; then

@@ -148,10 +148,10 @@ export default function LandingPage() {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-8">
-              <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-white">SMB Finance OS</h1>
-              </div>
+                          <div className="flex items-center space-x-8">
+                <div className="flex-shrink-0">
+                  <h1 className="text-2xl font-bold text-white">Trident Financial OS</h1>
+                </div>
               
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center space-x-6">
@@ -489,7 +489,7 @@ export default function LandingPage() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses that have already streamlined their financial operations with SMB Finance OS.
+            Join thousands of businesses that have already streamlined their financial operations with Trident Financial OS.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -513,7 +513,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">SMB Finance OS</h3>
+              <h3 className="text-xl font-bold mb-4">Trident Financial OS</h3>
               <p className="text-gray-400">
                 The financial operating system for global small and medium businesses.
               </p>
@@ -545,7 +545,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SMB Finance OS. All rights reserved.</p>
+            <p>&copy; 2024 Trident Financial OS. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -1,6 +1,6 @@
 # API Documentation
 
-Welcome to the SMB Finance OS API documentation. This API provides comprehensive financial management capabilities for small and medium businesses.
+Welcome to the Trident Financial OS API documentation. This API provides comprehensive financial management capabilities for small and medium businesses.
 
 ## 🔗 Quick Links
 
@@ -16,8 +16,8 @@ Welcome to the SMB Finance OS API documentation. This API provides comprehensive
 ## 🌐 Base URL
 
 - **Development**: `http://localhost:5000/api/v1`
-- **Staging**: `https://api-staging.smbfinanceos.com/api/v1`
-- **Production**: `https://api.smbfinanceos.com/api/v1`
+- **Staging**: `https://api-staging.tridentfinancialos.com/api/v1`
+- **Production**: `https://api.tridentfinancialos.com/api/v1`
 
 ## 🔐 Authentication
 
@@ -81,6 +81,6 @@ Download the complete OpenAPI specification:
 
 ## 🆘 Support
 
-- **API Status**: [status.smbfinanceos.com](https://status.smbfinanceos.com)
-- **Developer Support**: [support@smbfinanceos.com](mailto:support@smbfinanceos.com)
-- **Discord Community**: [Join our Discord](https://discord.gg/smbfinanceos) 
+- **API Status**: [status.tridentfinancialos.com](https://status.tridentfinancialos.com)
+- **Developer Support**: [support@tridentfinancialos.com](mailto:support@tridentfinancialos.com)
+- **Discord Community**: [Join our Discord](https://discord.gg/tridentfinancialos) 

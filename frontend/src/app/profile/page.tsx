@@ -60,7 +60,7 @@ export default function Profile() {
     }
   };
 
-  const handleSettingPress = (setting: any) => {
+  const handleSettingPress = (setting: { action: string; title: string }) => {
     if (setting.action === 'toggle') {
       if (setting.title === 'Notifications') {
         setNotificationsEnabled(!notificationsEnabled);
@@ -140,7 +140,7 @@ export default function Profile() {
               <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mr-3">
                 <BuildingOfficeIcon className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-slate-800">SMB Finance OS</span>
+              <span className="text-xl font-bold text-slate-800">Trident Financial OS</span>
             </div>
 
             {/* Navigation */}
@@ -266,7 +266,7 @@ export default function Profile() {
                   <div className="flex items-center">
                     <input
                       type="checkbox"
-                      checked={setting.title === 'Notifications' ? notificationsEnabled : setting.value}
+                      checked={setting.title === 'Notifications' ? notificationsEnabled : Boolean(setting.value)}
                       onChange={() => {
                         if (setting.title === 'Notifications') {
                           setNotificationsEnabled(!notificationsEnabled);

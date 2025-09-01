@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Colors } from '../constants/colors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -59,7 +60,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   return (
     <Animated.View style={[styles.container, { opacity: gradientOpacity }]}>
       <LinearGradient
-        colors={['#1e293b', '#334155', '#475569']}
+        colors={[Colors.neutral[800], Colors.neutral[700], Colors.neutral[600]]}
         style={styles.gradient}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
@@ -76,7 +77,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             ]}
           >
             <View style={styles.logo}>
-              <Ionicons name="wallet" size={60} color="#10b981" />
+              <Ionicons name="wallet" size={60} color={Colors.primary[500]} />
             </View>
           </Animated.View>
 
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: '#ffffff',
+    backgroundColor: Colors.semantic.background.primary,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
@@ -136,13 +137,13 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: Colors.semantic.text.inverse,
     marginBottom: 8,
     textAlign: 'center',
   },
   tagline: {
     fontSize: 16,
-    color: '#94a3b8',
+    color: Colors.semantic.text.tertiary,
     textAlign: 'center',
     marginBottom: 60,
     paddingHorizontal: 40,
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#10b981',
+    backgroundColor: Colors.primary[500],
     marginHorizontal: 4,
   },
   dot1: {

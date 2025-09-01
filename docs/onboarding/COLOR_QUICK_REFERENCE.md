@@ -1,23 +1,31 @@
-# SMB Finance OS Color Quick Reference
+# Trident Financial OS Color Quick Reference
 
-## 🎨 Brand Colors
+## 🎨 Brand Colors - Poseidon-inspired
 
 ### Primary Colors
 ```css
-/* Blue - Trust & Professionalism */
---primary-500: #3b82f6;  /* Main brand blue */
+/* Deep Blue - Poseidon-inspired */
+--primary-500: #3b82f6;  /* Deep blue - main brand color */
 --primary-600: #2563eb;  /* Hover states */
 --primary-700: #1d4ed8;  /* Active states */
 
-/* Green - Growth & Success */
+/* Bright Aqua/Turquoise - Ocean-inspired */
+--secondary-500: #14b8a6;  /* Bright aqua/turquoise */
+--secondary-600: #0d9488;  /* Secondary hover states */
+
+/* Gold - Treasure-inspired */
+--accent-500: #f59e0b;   /* Gold accent */
+--accent-600: #d97706;   /* Accent hover states */
+
+/* Ocean Green - Success */
 --success-500: #22c55e;  /* Success states */
 --success-600: #16a34a;  /* Success text */
 
-/* Orange - Attention & Warnings */
+/* Caution Orange - Warnings */
 --warning-500: #f59e0b;  /* Warning states */
 --warning-600: #d97706;  /* Warning text */
 
-/* Red - Errors & Critical */
+/* Storm Red - Errors & Critical */
 --danger-500: #ef4444;   /* Error states */
 --danger-600: #dc2626;   /* Error text */
 ```
@@ -97,7 +105,7 @@ FeatureColors.payment = {
 ### Wallet Types
 ```typescript
 FeatureColors.wallet = {
-  operating: Colors.primary[500],  // Blue
+  operating: Colors.primary[500],  // Deep Blue
   savings: Colors.success[500],     // Green
   tax: Colors.warning[500],        // Orange
   investment: Colors.accent.teal,  // Teal

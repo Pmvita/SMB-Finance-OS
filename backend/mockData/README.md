@@ -1,4 +1,4 @@
-# SMB Finance OS Shared MockData System
+# Trident Financial OS Shared MockData System
 
 This directory contains the shared mockData that both frontend and mobile-app use during development. The data is now split into individual JSON files for better maintainability and readability.
 

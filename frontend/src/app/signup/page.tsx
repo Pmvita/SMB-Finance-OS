@@ -134,10 +134,10 @@ export default function SignUp() {
 
   const nextStep = async () => {
     const fieldsToValidate = currentStep === 1 
-      ? ['firstName', 'lastName', 'email', 'phone']
-      : ['businessName', 'industry', 'businessType', 'employeeCount', 'annualRevenue'];
+      ? ['firstName', 'lastName', 'email', 'phone'] as const
+      : ['businessName', 'industry', 'businessType', 'employeeCount', 'annualRevenue'] as const;
     
-    const isValid = await trigger(fieldsToValidate as any);
+    const isValid = await trigger(fieldsToValidate);
     if (isValid) {
       setCurrentStep(currentStep + 1);
     }
@@ -170,7 +170,7 @@ export default function SignUp() {
               Create your account
             </h1>
             <p className="text-gray-600">
-              Join thousands of businesses using SMB Finance OS
+              Join thousands of businesses using Trident Financial OS
             </p>
           </div>
 

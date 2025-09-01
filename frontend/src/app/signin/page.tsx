@@ -143,7 +143,7 @@ export default function SignIn() {
               Welcome Back
             </h1>
             <p className="text-slate-300 text-base leading-relaxed">
-              Sign in to your SMB Finance OS account
+              Sign in to your Trident Financial OS account
             </p>
           </div>
         </motion.div>

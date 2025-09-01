@@ -131,7 +131,7 @@ export default function Dashboard() {
               <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mr-3">
                 <BuildingOfficeIcon className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-slate-800">SMB Finance OS</span>
+              <span className="text-xl font-bold text-slate-800">Trident Financial OS</span>
             </div>
 
             {/* User Menu */}

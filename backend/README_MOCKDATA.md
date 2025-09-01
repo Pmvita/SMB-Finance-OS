@@ -1,6 +1,6 @@
 # Backend Setup with Mock Data
 
-This guide helps you run the SMB Finance OS backend with mock data, bypassing database dependencies.
+This guide helps you run the Trident Financial OS backend with mock data, bypassing database dependencies.
 
 ## Quick Start
 

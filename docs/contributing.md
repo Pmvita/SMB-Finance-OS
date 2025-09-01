@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to SMB Finance OS! This guide will help you understand our development workflow and contribution process.
+Thank you for your interest in contributing to Trident Financial OS! This guide will help you understand our development workflow and contribution process.
 
 ## 🚀 Quick Start
 
@@ -14,12 +14,12 @@ Thank you for your interest in contributing to SMB Finance OS! This guide will h
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/SMB-Finance-OS.git
-   cd SMB-Finance-OS
+   git clone https://github.com/YOUR_USERNAME/Trident-Financial-OS.git
+   cd Trident-Financial-OS
    ```
 3. **Add the original repository as upstream**:
    ```bash
-   git remote add upstream https://github.com/Pmvita/SMB-Finance-OS.git
+   git remote add upstream https://github.com/Pmvita/Trident-Financial-OS.git
    ```
 
 ## 🔄 Development Workflow
@@ -46,7 +46,7 @@ If you have been added as a collaborator to the repository:
    ```
 
 4. **Create a Pull Request** on GitHub:
-   - Go to https://github.com/Pmvita/SMB-Finance-OS
+   - Go to https://github.com/Pmvita/Trident-Financial-OS
    - Click "Compare & pull request"
    - Fill in the PR template
    - Request review from @Pmvita
@@ -57,8 +57,8 @@ If you don't have direct access to the repository:
 1. **Fork the repository** on GitHub
 2. **Clone your fork**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/SMB-Finance-OS.git
-   cd SMB-Finance-OS
+   git clone https://github.com/YOUR_USERNAME/Trident-Financial-OS.git
+   cd Trident-Financial-OS
    ```
 
 3. **Create a feature branch**:
@@ -193,7 +193,7 @@ npx expo start
 
 ## 📄 License
 
-By contributing to SMB Finance OS, you agree that your contributions will be licensed under the same license as the project.
+By contributing to Trident Financial OS, you agree that your contributions will be licensed under the same license as the project.
 
 ## 🆘 Need Help?
 
@@ -201,4 +201,4 @@ By contributing to SMB Finance OS, you agree that your contributions will be lic
 - **GitHub Discussions**: For questions and general discussion
 - **Email**: Contact @Pmvita directly for urgent matters
 
-Thank you for contributing to SMB Finance OS! 🎉 
+Thank you for contributing to Trident Financial OS! 🎉 

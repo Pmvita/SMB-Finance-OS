@@ -5,19 +5,19 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SMB Finance OS - Financial Operating System for Global SMBs",
+  title: "Trident Financial OS - Financial Operating System for Global SMBs",
   description: "Streamline your business finances with our comprehensive platform. From invoicing to lending, we provide everything SMBs need to thrive in emerging markets.",
   keywords: "SMB, small business, finance, invoicing, expense tracking, payments, tax reporting, credit scoring, lending, payroll",
-  authors: [{ name: "SMB Finance OS Team" }],
+  authors: [{ name: "Trident Financial OS Team" }],
   openGraph: {
-    title: "SMB Finance OS - Financial Operating System for Global SMBs",
+    title: "Trident Financial OS - Financial Operating System for Global SMBs",
     description: "Streamline your business finances with our comprehensive platform. From invoicing to lending, we provide everything SMBs need to thrive in emerging markets.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SMB Finance OS - Financial Operating System for Global SMBs",
+    title: "Trident Financial OS - Financial Operating System for Global SMBs",
     description: "Streamline your business finances with our comprehensive platform. From invoicing to lending, we provide everything SMBs need to thrive in emerging markets.",
   },
   robots: {

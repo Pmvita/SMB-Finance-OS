@@ -132,7 +132,7 @@ export default function PlatformsPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <Link href="/landing" className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">SMB Finance OS</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Trident Financial OS</h1>
               </Link>
               
               <div className="hidden lg:flex items-center space-x-6">
@@ -193,7 +193,7 @@ export default function PlatformsPage() {
               Choose Your Platform
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Whether you prefer web, mobile, or API access, we've got you covered. 
+              Whether you prefer web, mobile, or API access, we&apos;ve got you covered. 
               All platforms offer the same powerful features with a consistent experience.
             </p>
           </div>

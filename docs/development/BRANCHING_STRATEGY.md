@@ -1,6 +1,6 @@
 # Branching Strategy
 
-This document outlines the Git branching strategy for the SMB Finance OS project.
+This document outlines the Git branching strategy for the Trident Financial OS project.
 
 ## 🌿 Branch Structure
 

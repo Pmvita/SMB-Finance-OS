@@ -1,4 +1,4 @@
-// SMB Finance OS Shared MockData Service
+// Trident Financial OS Shared MockData Service
 // Used by both frontend and mobile-app during development
 
 import fs from 'fs';

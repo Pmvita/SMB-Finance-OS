@@ -1,50 +1,74 @@
-/* SMB Finance OS Shared Color Theme - Modern Mobile-First Design */
+/* Trident Financial OS Shared Color Theme - Poseidon-inspired Design */
 
 /* Primary Brand Colors */
 :root {
-  /* Primary Blue - Trust & Professionalism */
+  /* Primary Blue - Deep Blue (Poseidon-inspired) */
   --primary-50: #eff6ff;
   --primary-100: #dbeafe;
   --primary-200: #bfdbfe;
   --primary-300: #93c5fd;
   --primary-400: #60a5fa;
-  --primary-500: #3b82f6;  /* Main brand blue */
+  --primary-500: #3b82f6;  /* Deep blue - main brand color */
   --primary-600: #2563eb;
   --primary-700: #1d4ed8;
   --primary-800: #1e40af;
   --primary-900: #1e3a8a;
 
-  /* Success Green - Growth & Prosperity */
+  /* Secondary Colors - Bright Aqua/Turquoise (Ocean-inspired) */
+  --secondary-50: #f0fdfa;
+  --secondary-100: #ccfbf1;
+  --secondary-200: #99f6e4;
+  --secondary-300: #5eead4;
+  --secondary-400: #2dd4bf;
+  --secondary-500: #14b8a6;  /* Bright aqua/turquoise */
+  --secondary-600: #0d9488;
+  --secondary-700: #0f766e;
+  --secondary-800: #115e59;
+  --secondary-900: #134e4a;
+
+  /* Accent Colors - Gold (Treasure-inspired) */
+  --accent-50: #fffbeb;
+  --accent-100: #fef3c7;
+  --accent-200: #fde68a;
+  --accent-300: #fcd34d;
+  --accent-400: #fbbf24;
+  --accent-500: #f59e0b;  /* Gold accent */
+  --accent-600: #d97706;
+  --accent-700: #b45309;
+  --accent-800: #92400e;
+  --accent-900: #78350f;
+
+  /* Success Green - Ocean Green */
   --success-50: #f0fdf4;
   --success-100: #dcfce7;
   --success-200: #bbf7d0;
   --success-300: #86efac;
   --success-400: #4ade80;
-  --success-500: #22c55e;  /* Growth green */
+  --success-500: #22c55e;  /* Ocean green */
   --success-600: #16a34a;
   --success-700: #15803d;
   --success-800: #166534;
   --success-900: #14532d;
 
-  /* Warning Orange - Attention & Alerts */
+  /* Warning Orange - Caution Orange */
   --warning-50: #fffbeb;
   --warning-100: #fef3c7;
   --warning-200: #fde68a;
   --warning-300: #fcd34d;
   --warning-400: #fbbf24;
-  --warning-500: #f59e0b;  /* Alert orange */
+  --warning-500: #f59e0b;  /* Caution orange */
   --warning-600: #d97706;
   --warning-700: #b45309;
   --warning-800: #92400e;
   --warning-900: #78350f;
 
-  /* Danger Red - Errors & Critical */
+  /* Danger Red - Storm Red */
   --danger-50: #fef2f2;
   --danger-100: #fee2e2;
   --danger-200: #fecaca;
   --danger-300: #fca5a5;
   --danger-400: #f87171;
-  --danger-500: #ef4444;  /* Error red */
+  --danger-500: #ef4444;  /* Storm red */
   --danger-600: #dc2626;
   --danger-700: #b91c1c;
   --danger-800: #991b1b;
@@ -62,18 +86,26 @@
   --neutral-800: #1e293b;
   --neutral-900: #0f172a;
 
-  /* Accent Colors - Modern Vibrant Accents */
-  --accent-purple: #8b5cf6;  /* Modern purple for premium features */
-  --accent-teal: #06b6d4;    /* Modern teal for professional services */
-  --accent-amber: #f59e0b;   /* Modern amber for payments */
-  --accent-emerald: #10b981; /* Modern emerald for success states */
-  --accent-indigo: #6366f1;  /* Modern indigo for tech features */
-  --accent-rose: #f43f5e;    /* Modern rose for special alerts */
+  /* Accent Colors - Poseidon-inspired Accents */
+  --accent-purple: #8b5cf6;  /* Deep sea purple for premium features */
+  --accent-teal: #06b6d4;    /* Ocean teal for professional services */
+  --accent-amber: #f59e0b;   /* Gold amber for payments */
+  --accent-emerald: #10b981; /* Sea emerald for success states */
+  --accent-indigo: #6366f1;  /* Deep indigo for tech features */
+  --accent-rose: #f43f5e;    /* Coral rose for special alerts */
 }
 
 /* Brand Gradients */
 .bg-brand-gradient {
   background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+}
+
+.bg-secondary-gradient {
+  background: linear-gradient(135deg, var(--secondary-500) 0%, var(--secondary-700) 100%);
+}
+
+.bg-accent-gradient {
+  background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-700) 100%);
 }
 
 .bg-success-gradient {
@@ -84,13 +116,17 @@
   background: linear-gradient(135deg, var(--warning-500) 0%, var(--warning-700) 100%);
 }
 
-.bg-accent-gradient {
-  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-indigo) 100%);
-}
-
 /* Text Colors */
 .text-brand {
   color: var(--primary-600);
+}
+
+.text-secondary {
+  color: var(--secondary-600);
+}
+
+.text-accent {
+  color: var(--accent-600);
 }
 
 .text-success {
@@ -126,6 +162,14 @@
   border-color: var(--primary-300);
 }
 
+.border-secondary {
+  border-color: var(--secondary-300);
+}
+
+.border-accent {
+  border-color: var(--accent-300);
+}
+
 .border-success {
   border-color: var(--success-300);
 }
@@ -152,14 +196,24 @@
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
+.focus-secondary:focus {
+  border-color: var(--secondary-500);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.focus-accent:focus {
+  border-color: var(--accent-500);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
 .focus-success:focus {
   border-color: var(--success-500);
   box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
 }
 
-.focus-accent:focus {
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+.focus-warning:focus {
+  border-color: var(--warning-500);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
 }
 
 /* Button Styles - Modern Mobile-First */
@@ -245,7 +299,7 @@
 }
 
 .btn-accent {
-  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-indigo) 100%);
+  background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-700) 100%);
   color: white;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
@@ -259,7 +313,7 @@
 
 .btn-accent:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
 /* Card Styles - Modern Mobile-First */
@@ -281,16 +335,20 @@
   border-left: 4px solid var(--primary-500);
 }
 
+.card-secondary {
+  border-left: 4px solid var(--secondary-500);
+}
+
+.card-accent {
+  border-left: 4px solid var(--accent-500);
+}
+
 .card-success {
   border-left: 4px solid var(--success-500);
 }
 
 .card-warning {
   border-left: 4px solid var(--warning-500);
-}
-
-.card-accent {
-  border-left: 4px solid var(--accent-purple);
 }
 
 /* Form Styles - Modern Mobile-First */
@@ -308,6 +366,42 @@
 .input-brand:focus {
   border-color: var(--primary-500);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.input-secondary {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--secondary-300);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+.input-secondary:focus {
+  border-color: var(--secondary-500);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.input-accent {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--accent-300);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+.input-accent:focus {
+  border-color: var(--accent-500);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
   outline: none;
   transform: translateY(-1px);
 }
@@ -422,7 +516,7 @@
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-indigo) 100%);
+  background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-700) 100%);
   color: white;
   border: none;
 }
@@ -539,6 +633,8 @@
   }
   
   .input-brand,
+  .input-secondary,
+  .input-accent,
   .input-success,
   .input-warning,
   .input-danger {

@@ -1,8 +1,8 @@
-# SMB Finance OS Shared Color Guide
+# Trident Financial OS Shared Color Guide
 
 ## 🎨 Overview
 
-This document defines the shared color system for SMB Finance OS, ensuring consistent branding across frontend (Next.js) and mobile app (React Native) platforms.
+This document defines the shared color system for Trident Financial OS, ensuring consistent branding across frontend (Next.js) and mobile app (React Native) platforms.
 
 ## 📁 File Structure
 
@@ -271,4 +271,4 @@ FeatureColors.wallet = {
 
 ---
 
-*This shared color guide ensures consistent, professional, and trustworthy visual identity for SMB Finance OS across all platforms and markets.* 
+*This shared color guide ensures consistent, professional, and trustworthy visual identity for Trident Financial OS across all platforms and markets.* 

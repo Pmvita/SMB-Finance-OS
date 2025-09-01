@@ -9,18 +9,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // SMB Finance OS Brand Colors
+        // Trident Financial OS Brand Colors - Poseidon-inspired
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6', // Main brand blue
+          500: '#3b82f6', // Deep blue - main brand color
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
+        },
+        secondary: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6', // Bright aqua/turquoise
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+        },
+        accent: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b', // Gold accent
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
         },
         success: {
           50: '#f0fdf4',
@@ -28,7 +52,7 @@ const config: Config = {
           200: '#bbf7d0',
           300: '#86efac',
           400: '#4ade80',
-          500: '#22c55e', // Growth green
+          500: '#22c55e', // Ocean green
           600: '#16a34a',
           700: '#15803d',
           800: '#166534',
@@ -40,7 +64,7 @@ const config: Config = {
           200: '#fde68a',
           300: '#fcd34d',
           400: '#fbbf24',
-          500: '#f59e0b', // Alert orange
+          500: '#f59e0b', // Caution orange
           600: '#d97706',
           700: '#b45309',
           800: '#92400e',
@@ -52,7 +76,7 @@ const config: Config = {
           200: '#fecaca',
           300: '#fca5a5',
           400: '#f87171',
-          500: '#ef4444', // Error red
+          500: '#ef4444', // Storm red
           600: '#dc2626',
           700: '#b91c1c',
           800: '#991b1b',
@@ -70,12 +94,12 @@ const config: Config = {
           800: '#1e293b',
           900: '#0f172a',
         },
-        // Accent Colors
-        accent: {
-          purple: '#8b5cf6',   // Premium features
-          teal: '#06b6d4',     // Professional services
-          amber: '#f59e0b',    // Payments
-          emerald: '#10b981',  // Success states
+        // Accent Colors - Poseidon-inspired
+        accentColors: {
+          purple: '#8b5cf6',   // Deep sea purple for premium features
+          teal: '#06b6d4',     // Ocean teal for professional services
+          amber: '#f59e0b',    // Gold amber for payments
+          emerald: '#10b981',  // Sea emerald for success states
         },
       },
       fontFamily: {
@@ -91,11 +115,15 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'brand-gradient': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+        'secondary-gradient': 'linear-gradient(135deg, #14b8a6 0%, #0f766e 100%)',
+        'accent-gradient': 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
         'success-gradient': 'linear-gradient(135deg, #22c55e 0%, #15803d 100%)',
         'warning-gradient': 'linear-gradient(135deg, #f59e0b 0%, #b45309 100%)',
       },
       boxShadow: {
         'brand': '0 4px 14px 0 rgba(59, 130, 246, 0.15)',
+        'secondary': '0 4px 14px 0 rgba(20, 184, 166, 0.15)',
+        'accent': '0 4px 14px 0 rgba(245, 158, 11, 0.15)',
         'success': '0 4px 14px 0 rgba(34, 197, 94, 0.15)',
         'warning': '0 4px 14px 0 rgba(245, 158, 11, 0.15)',
         'danger': '0 4px 14px 0 rgba(239, 68, 68, 0.15)',

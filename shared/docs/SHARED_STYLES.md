@@ -1,16 +1,24 @@
-# SMB Finance OS Shared Styles
+# Trident Financial OS Shared Styles
 
 This document describes the shared styles system used by both the frontend (Next.js) and mobile-app (React Native) to maintain consistent UI/UX across platforms.
 
-## 🎨 Color System
+## 🎨 Color System - Poseidon-inspired
 
-### Primary Colors (Green Theme)
-- **Primary-500**: `#22c55e` - Main brand green
-- **Primary-600**: `#16a34a` - Darker green for hover states
-- **Primary-700**: `#15803d` - Even darker for active states
+### Primary Colors (Deep Blue Theme)
+- **Primary-500**: `#3b82f6` - Deep blue (main brand color)
+- **Primary-600**: `#2563eb` - Darker blue for hover states
+- **Primary-700**: `#1d4ed8` - Even darker for active states
 
-### Success Colors
-- **Success-500**: `#22c55e` - Same as primary green
+### Secondary Colors (Bright Aqua/Turquoise)
+- **Secondary-500**: `#14b8a6` - Bright aqua/turquoise
+- **Secondary-600**: `#0d9488` - Darker aqua for hover states
+
+### Accent Colors (Gold)
+- **Accent-500**: `#f59e0b` - Gold accent
+- **Accent-600**: `#d97706` - Darker gold for hover states
+
+### Success Colors (Ocean Green)
+- **Success-500**: `#22c55e` - Ocean green
 - **Success-600**: `#16a34a` - Darker success green
 
 ### Neutral Colors
@@ -25,11 +33,12 @@ This document describes the shared styles system used by both the frontend (Next
 ### Base Button Classes
 ```css
 .btn                    /* Base button styles */
-.btn-primary           /* Green primary button */
-.btn-secondary         /* Outline button */
-.btn-success           /* Success button (same as primary) */
-.btn-warning           /* Warning button */
-.btn-danger            /* Danger button */
+.btn-primary           /* Deep blue primary button */
+.btn-secondary         /* Bright aqua secondary button */
+.btn-accent            /* Gold accent button */
+.btn-success           /* Ocean green success button */
+.btn-warning           /* Caution orange warning button */
+.btn-danger            /* Storm red danger button */
 ```
 
 ### Button Sizes
@@ -51,12 +60,12 @@ This document describes the shared styles system used by both the frontend (Next
 
 #### Frontend (Next.js)
 ```tsx
-// Primary green button
+// Primary deep blue button
 <button className="btn btn-primary">
   Get Started
 </button>
 
-// Large outline button
+// Large secondary aqua button
 <button className="btn btn-secondary btn-lg">
   Learn More
 </button>

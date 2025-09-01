@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SMB Finance OS - Flask Application Entry Point
+Trident Financial OS - Flask Application Entry Point
 """
 
 import os
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5001))
     debug = os.environ.get('FLASK_ENV') == 'development'
     
-    print(f"🚀 Starting SMB Finance OS API on port {port}")
+    print(f"🚀 Starting Trident Financial OS API on port {port}")
     print(f"📊 Health check: http://localhost:{port}/health")
     print(f"🔗 API Base URL: http://localhost:{port}/api/v1")
     print(f"📋 MockData endpoints:")
