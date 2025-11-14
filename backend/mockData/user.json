@@ -1,9 +1,15 @@
 {
   "id": "dev-user-001",
-  "name": "Pierre Mvita",
-  "email": "petermvita@gmail.com",
-  "businessName": "SB Finance",
-  "businessType": "Technology Services",
+  "email": "petermvita@hotmail.com",
+  "password": "password123",
+  "first_name": "Pierre",
+  "last_name": "Mvita",
+  "phone": "+254722123456",
+  "role": "admin",
+  "is_verified": true,
+  "is_active": true,
+  "businessName": "Trident Finance",
+  "businessType": "Financial Services",
   "createdAt": "2024-01-01T00:00:00Z",
   "lastLogin": "2024-01-15T10:30:00Z"
 } 

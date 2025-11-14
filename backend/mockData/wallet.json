@@ -1,20 +1,20 @@
 {
-  "totalBalance": 48930,
+  "totalBalance": 0,
   "balanceChange": 4250,
-  "changePercent": 9.5,
+  "changePercent": 12.5,
   "accounts": [
     {
       "id": "acc-001",
       "name": "Main Business Account",
-      "balance": 25430,
+      "balance": 452706.52,
       "currency": "USD",
       "type": "checking",
-      "accountNumber": "****1234"
+      "accountNumber": "****1233"
     },
     {
       "id": "acc-002",
       "name": "Savings Account",
-      "balance": 15000,
+      "balance": 100000.00,  
       "currency": "USD",
       "type": "savings",
       "accountNumber": "****5678"
