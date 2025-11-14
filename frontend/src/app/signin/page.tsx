@@ -19,6 +19,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Link from 'next/link';
+import { Colors } from '../../constants/colors';
 
 const signInSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -109,7 +110,12 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative">
+    <div 
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative"
+      style={{ 
+        background: `linear-gradient(135deg, ${Colors.neutral[800]} 0%, ${Colors.neutral[700]} 50%, ${Colors.neutral[600]} 100%)` 
+      }}
+    >
       {/* Back to Home Link - Top Left */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -117,10 +123,14 @@ export default function SignIn() {
         transition={{ duration: 0.6 }}
         className="absolute top-6 left-6 z-10"
       >
-        <Link 
-          href="/"
-          className="inline-flex items-center text-slate-300 hover:text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded-lg p-2 group"
-        >
+                 <Link 
+           href="/"
+           className="inline-flex items-center transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg p-2 group"
+           style={{ 
+             color: Colors.neutral[300],
+             '--tw-ring-color': Colors.primary[500]
+           } as React.CSSProperties}
+         >
           <ArrowLeftIcon className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           <span className="text-sm font-medium">Back to Home</span>
         </Link>
@@ -136,15 +146,15 @@ export default function SignIn() {
         >
           {/* Logo/Brand Section */}
           <div className="mb-8">
-            <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg mb-6">
-              <ShieldCheckIcon className="h-10 w-10 text-emerald-500" />
-            </div>
-            <h1 className="text-3xl font-bold text-white mb-3">
-              Welcome Back
-            </h1>
-            <p className="text-slate-300 text-base leading-relaxed">
-              Sign in to your Trident Financial OS account
-            </p>
+                         <div className="mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg mb-6">
+               <ShieldCheckIcon className="h-10 w-10" style={{ color: Colors.primary[500] }} />
+             </div>
+             <h1 className="text-3xl font-bold mb-3" style={{ color: 'white' }}>
+               Welcome Back
+             </h1>
+             <p className="text-base leading-relaxed" style={{ color: Colors.neutral[300] }}>
+               Sign in to your Trident Financial OS account
+             </p>
           </div>
         </motion.div>
 
@@ -175,8 +185,8 @@ export default function SignIn() {
 
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-3 flex items-center">
-                <UserIcon className="h-4 w-4 mr-2 text-slate-500" />
+              <label htmlFor="email" className="block text-sm font-semibold mb-3 flex items-center" style={{ color: Colors.neutral[700] }}>
+                <UserIcon className="h-4 w-4 mr-2" style={{ color: Colors.neutral[500] }} />
                 Email address
               </label>
               <div className="relative group">
@@ -186,17 +196,21 @@ export default function SignIn() {
                   type="email"
                   autoComplete="email"
                   placeholder="Enter your email address"
-                  className={`w-full px-4 py-4 pl-12 border-2 rounded-xl focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200 bg-white hover:bg-slate-50 ${
-                    focusedField === 'email' ? 'border-emerald-500 shadow-lg shadow-emerald-500/25' : 'border-slate-200'
+                  className={`w-full px-4 py-4 pl-12 border-2 rounded-xl focus:ring-4 focus:border-transparent transition-all duration-200 bg-white hover:bg-slate-50 ${
+                    focusedField === 'email' ? 'shadow-lg' : ''
                   } ${errors.email ? 'border-red-500 focus:ring-red-500/20' : ''}`}
+                  style={{ 
+                    borderColor: focusedField === 'email' ? Colors.primary[500] : Colors.neutral[200],
+                    '--tw-ring-color': Colors.primary[500] + '20'
+                  } as React.CSSProperties}
                   onFocus={() => setFocusedField('email')}
                   onBlur={() => setFocusedField(null)}
                   onMouseEnter={() => setIsHovered('email')}
                   onMouseLeave={() => setIsHovered(null)}
                 />
-                <UserIcon className={`absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 transition-colors ${
-                  focusedField === 'email' ? 'text-emerald-500' : 'text-slate-400'
-                }`} />
+                <UserIcon className={`absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 transition-colors`} style={{ 
+                  color: focusedField === 'email' ? Colors.primary[500] : Colors.neutral[400]
+                }} />
               </div>
               {errors.email && (
                 <motion.p
@@ -212,8 +226,8 @@ export default function SignIn() {
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-3 flex items-center">
-                <LockClosedIcon className="h-4 w-4 mr-2 text-slate-500" />
+              <label htmlFor="password" className="block text-sm font-semibold mb-3 flex items-center" style={{ color: Colors.neutral[700] }}>
+                <LockClosedIcon className="h-4 w-4 mr-2" style={{ color: Colors.neutral[500] }} />
                 Password
               </label>
               <div className="relative group">
@@ -223,9 +237,13 @@ export default function SignIn() {
                   type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
                   placeholder="Enter your password"
-                  className={`w-full px-4 py-4 pr-12 border-2 rounded-xl focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200 bg-white hover:bg-slate-50 ${
-                    focusedField === 'password' ? 'border-emerald-500 shadow-lg shadow-emerald-500/25' : 'border-slate-200'
+                  className={`w-full px-4 py-4 pr-12 border-2 rounded-xl focus:ring-4 focus:border-transparent transition-all duration-200 bg-white hover:bg-slate-50 ${
+                    focusedField === 'password' ? 'shadow-lg' : ''
                   } ${errors.password ? 'border-red-500 focus:ring-red-500/20' : ''}`}
+                  style={{ 
+                    borderColor: focusedField === 'password' ? Colors.primary[500] : Colors.neutral[200],
+                    '--tw-ring-color': Colors.primary[500] + '20'
+                  } as React.CSSProperties}
                   onFocus={() => setFocusedField('password')}
                   onBlur={() => setFocusedField(null)}
                   onMouseEnter={() => setIsHovered('password')}
@@ -234,7 +252,11 @@ export default function SignIn() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center transition-colors focus:outline-none focus:ring-2 rounded-lg"
+                  style={{ 
+                    color: Colors.neutral[400],
+                    '--tw-ring-color': Colors.primary[500]
+                  } as React.CSSProperties}
                   title={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? (
@@ -278,7 +300,11 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-400 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none focus:outline-none focus:ring-4 focus:ring-emerald-500/20 disabled:cursor-not-allowed"
+              className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none disabled:opacity-50"
+              style={{ 
+                backgroundColor: Colors.primary[500],
+                color: 'white'
+              }}
             >
               {isSubmitting ? (
                 <>
@@ -297,10 +323,10 @@ export default function SignIn() {
           {/* Divider */}
           <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-slate-200"></div>
+              <div className="w-full border-t" style={{ borderColor: Colors.neutral[200] }}></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-slate-500 font-medium">or</span>
+              <span className="px-4 bg-white font-medium" style={{ color: Colors.neutral[500] }}>or</span>
             </div>
           </div>
 
@@ -309,7 +335,12 @@ export default function SignIn() {
             <button 
               onClick={() => handleSocialLogin('Google')}
               disabled={isSubmitting}
-              className="w-14 h-14 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-full transition-all duration-200 flex items-center justify-center border-2 border-slate-200 hover:border-slate-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-slate-500/20 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-14 h-14 bg-white hover:bg-slate-50 font-semibold rounded-full transition-all duration-200 flex items-center justify-center border-2 transform hover:-translate-y-1 focus:outline-none focus:ring-4 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ 
+                color: Colors.neutral[700],
+                borderColor: Colors.neutral[200],
+                '--tw-ring-color': Colors.neutral[500] + '20'
+              } as React.CSSProperties}
             >
               <svg className="h-6 w-6" viewBox="0 0 24 24">
                 <path fill="#EA4335" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -322,7 +353,12 @@ export default function SignIn() {
             <button 
               onClick={() => handleSocialLogin('Facebook')}
               disabled={isSubmitting}
-              className="w-14 h-14 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-full transition-all duration-200 flex items-center justify-center border-2 border-slate-200 hover:border-slate-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-slate-500/20 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-14 h-14 bg-white hover:bg-slate-50 font-semibold rounded-full transition-all duration-200 flex items-center justify-center border-2 transform hover:-translate-y-1 focus:outline-none focus:ring-4 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ 
+                color: Colors.neutral[700],
+                borderColor: Colors.neutral[200],
+                '--tw-ring-color': Colors.neutral[500] + '20'
+              } as React.CSSProperties}
             >
               <svg className="h-6 w-6" viewBox="0 0 24 24">
                 <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -332,7 +368,12 @@ export default function SignIn() {
             <button 
               onClick={() => handleSocialLogin('X (Twitter)')}
               disabled={isSubmitting}
-              className="w-14 h-14 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-full transition-all duration-200 flex items-center justify-center border-2 border-slate-200 hover:border-slate-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-slate-500/20 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-14 h-14 bg-white hover:bg-slate-50 font-semibold rounded-full transition-all duration-200 flex items-center justify-center border-2 transform hover:-translate-y-1 focus:outline-none focus:ring-4 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ 
+                color: Colors.neutral[700],
+                borderColor: Colors.neutral[200],
+                '--tw-ring-color': Colors.neutral[500] + '20'
+              } as React.CSSProperties}
             >
               <svg className="h-6 w-6" viewBox="0 0 24 24">
                 <path fill="#1DA1F2" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
@@ -350,7 +391,11 @@ export default function SignIn() {
         >
           <button
             onClick={() => setShowDevMode(!showDevMode)}
-            className="inline-flex items-center text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded-lg p-2"
+            className="inline-flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg p-2"
+            style={{ 
+              color: Colors.neutral[300],
+              '--tw-ring-color': Colors.primary[500]
+            } as React.CSSProperties}
           >
             <Cog6ToothIcon className="h-4 w-4 mr-2" />
             <span className="text-sm font-medium">Developer Mode</span>
@@ -368,11 +413,16 @@ export default function SignIn() {
             <button
               onClick={handleDevMode}
               disabled={isSubmitting}
-              className="w-full bg-slate-800 hover:bg-slate-700 disabled:bg-slate-600 text-emerald-500 font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center border-2 border-emerald-500 hover:border-emerald-400 transform hover:-translate-y-1 disabled:transform-none focus:outline-none focus:ring-4 focus:ring-emerald-500/20 disabled:cursor-not-allowed"
+              className="w-full font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center border-2 transform hover:-translate-y-1 disabled:transform-none disabled:opacity-50"
+              style={{ 
+                backgroundColor: Colors.neutral[800],
+                borderColor: Colors.primary[500],
+                color: Colors.primary[500]
+              }}
             >
               {isSubmitting ? (
                 <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-emerald-500 mr-3"></div>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 mr-3" style={{ borderColor: Colors.primary[500] }}></div>
                   <span>Loading Dev Data...</span>
                 </>
               ) : (
@@ -392,11 +442,15 @@ export default function SignIn() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
-          <p className="text-slate-300 text-base">
+          <p className="text-base" style={{ color: Colors.neutral[300] }}>
             Don&apos;t have an account?{' '}
             <Link
               href="/signup"
-              className="text-emerald-500 hover:text-emerald-400 font-semibold transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-800 rounded-lg"
+              className="font-semibold transition-colors hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+              style={{ 
+                color: Colors.primary[500],
+                '--tw-ring-color': Colors.primary[500]
+              } as React.CSSProperties}
             >
               Sign up
             </Link>

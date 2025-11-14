@@ -26,6 +26,7 @@ import {
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import MockDataService, { MockData } from '../../services/mockDataService';
+import { Colors } from '../../constants/colors';
 
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,14 +76,19 @@ export default function Dashboard() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
+      <div 
+        className="min-h-screen flex items-center justify-center"
+        style={{ 
+          background: `linear-gradient(135deg, ${Colors.neutral[50]} 0%, ${Colors.neutral[100]} 100%)` 
+        }}
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="text-center"
         >
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mx-auto mb-4"></div>
-          <p className="text-slate-600 text-lg">Loading your dashboard...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 mx-auto mb-4" style={{ borderColor: Colors.primary[500] }}></div>
+          <p className="text-lg" style={{ color: Colors.neutral[600] }}>Loading your dashboard...</p>
         </motion.div>
       </div>
     );
@@ -90,18 +96,27 @@ export default function Dashboard() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center px-4">
+      <div 
+        className="min-h-screen flex items-center justify-center px-4"
+        style={{ 
+          background: `linear-gradient(135deg, ${Colors.neutral[50]} 0%, ${Colors.neutral[100]} 100%)` 
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center max-w-md"
         >
-          <ExclamationTriangleIcon className="h-16 w-16 text-red-500 mx-auto mb-4" />
-          <h2 className="text-xl font-semibold text-slate-800 mb-2">Error Loading Dashboard</h2>
-          <p className="text-slate-600 mb-6">{error}</p>
+          <ExclamationTriangleIcon className="h-16 w-16 mx-auto mb-4" style={{ color: Colors.danger[500] }} />
+          <h2 className="text-xl font-semibold mb-2" style={{ color: Colors.neutral[800] }}>Error Loading Dashboard</h2>
+          <p className="mb-6" style={{ color: Colors.neutral[600] }}>{error}</p>
           <button
             onClick={loadDashboardData}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200"
+            className="font-semibold py-3 px-6 rounded-xl transition-all duration-200"
+            style={{ 
+              backgroundColor: Colors.primary[500],
+              color: 'white'
+            }}
           >
             Try Again
           </button>
@@ -117,37 +132,44 @@ export default function Dashboard() {
   const { metrics, quickActions, recentActivity } = dashboardData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div 
+      className="min-h-screen"
+      style={{ 
+        background: `linear-gradient(135deg, ${Colors.neutral[50]} 0%, ${Colors.neutral[100]} 100%)` 
+      }}
+    >
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white shadow-sm border-b border-slate-200"
+        className="bg-white shadow-sm border-b"
+        style={{ borderColor: Colors.neutral[200] }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Brand */}
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mr-3">
-                <BuildingOfficeIcon className="h-5 w-5 text-white" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center mr-3" style={{ backgroundColor: Colors.primary[500] }}>
+                <BuildingOfficeIcon className="h-5 w-5" style={{ color: 'white' }} />
               </div>
-              <span className="text-xl font-bold text-slate-800">Trident Financial OS</span>
+              <span className="text-xl font-bold" style={{ color: Colors.neutral[800] }}>Trident Financial OS</span>
             </div>
 
             {/* User Menu */}
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <UserIcon className="h-4 w-4 text-emerald-600" />
+                <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: Colors.primary[100] }}>
+                  <UserIcon className="h-4 w-4" style={{ color: Colors.primary[600] }} />
                 </div>
                 <div className="hidden md:block">
-                  <p className="text-sm font-medium text-slate-800">{userData.name}</p>
-                  <p className="text-xs text-slate-500">{userData.businessName}</p>
+                  <p className="text-sm font-medium" style={{ color: Colors.neutral[800] }}>{userData.name}</p>
+                  <p className="text-xs" style={{ color: Colors.neutral[500] }}>{userData.businessName}</p>
                 </div>
               </div>
               <Link
                 href="/signin"
-                className="text-slate-500 hover:text-slate-700 transition-colors"
+                className="transition-colors"
+                style={{ color: Colors.neutral[500] }}
               >
                 <Cog6ToothIcon className="h-5 w-5" />
               </Link>
@@ -158,17 +180,17 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Welcome Section */}
+                {/* Welcome Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="mb-8"
         >
-          <h1 className="text-3xl font-bold text-slate-800 mb-2">
+          <h1 className="text-3xl font-bold mb-2" style={{ color: Colors.neutral[800] }}>
             {getTimeBasedGreeting()}, {userData.name}!
           </h1>
-                      <p className="text-slate-600">Here&apos;s your financial overview for today</p>
+          <p style={{ color: Colors.neutral[600] }}>Here&apos;s your financial overview for today</p>
         </motion.div>
 
         {/* Metrics Grid */}
@@ -179,63 +201,63 @@ export default function Dashboard() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
         >
           {/* Total Revenue */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-shadow" style={{ borderColor: Colors.neutral[200] }}>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-                <CurrencyDollarIcon className="h-6 w-6 text-emerald-600" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: Colors.success[100] }}>
+                <CurrencyDollarIcon className="h-6 w-6" style={{ color: Colors.success[600] }} />
               </div>
-              <div className="flex items-center text-emerald-600">
+              <div className="flex items-center" style={{ color: Colors.success[600] }}>
                 <ArrowTrendingUpIcon className="h-4 w-4 mr-1" />
                 <span className="text-sm font-medium">+{metrics.revenueChange}%</span>
               </div>
             </div>
-            <h3 className="text-sm font-medium text-slate-600 mb-1">Total Revenue</h3>
-            <p className="text-2xl font-bold text-slate-800">${metrics.totalRevenue.toLocaleString()}</p>
+            <h3 className="text-sm font-medium mb-1" style={{ color: Colors.neutral[600] }}>Total Revenue</h3>
+            <p className="text-2xl font-bold" style={{ color: Colors.neutral[800] }}>${metrics.totalRevenue.toLocaleString()}</p>
           </div>
 
           {/* Outstanding Invoices */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-shadow" style={{ borderColor: Colors.neutral[200] }}>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                <DocumentDuplicateIcon className="h-6 w-6 text-orange-600" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: Colors.warning[100] }}>
+                <DocumentDuplicateIcon className="h-6 w-6" style={{ color: Colors.warning[600] }} />
               </div>
-              <div className="flex items-center text-red-600">
+              <div className="flex items-center" style={{ color: Colors.danger[600] }}>
                 <ArrowTrendingDownIcon className="h-4 w-4 mr-1" />
                 <span className="text-sm font-medium">-5.2%</span>
               </div>
             </div>
-            <h3 className="text-sm font-medium text-slate-600 mb-1">Outstanding Invoices</h3>
-            <p className="text-2xl font-bold text-slate-800">${metrics.outstandingInvoices.toLocaleString()}</p>
+            <h3 className="text-sm font-medium mb-1" style={{ color: Colors.neutral[600] }}>Outstanding Invoices</h3>
+            <p className="text-2xl font-bold" style={{ color: Colors.neutral[800] }}>${metrics.outstandingInvoices.toLocaleString()}</p>
           </div>
 
           {/* Monthly Expenses */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-shadow" style={{ borderColor: Colors.neutral[200] }}>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                <ReceiptRefundIcon className="h-6 w-6 text-red-600" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: Colors.danger[100] }}>
+                <ReceiptRefundIcon className="h-6 w-6" style={{ color: Colors.danger[600] }} />
               </div>
-              <div className="flex items-center text-amber-600">
+              <div className="flex items-center" style={{ color: Colors.warning[600] }}>
                 <ArrowTrendingUpIcon className="h-4 w-4 mr-1" />
                 <span className="text-sm font-medium">+{metrics.expenseChange}%</span>
               </div>
             </div>
-            <h3 className="text-sm font-medium text-slate-600 mb-1">Monthly Expenses</h3>
-            <p className="text-2xl font-bold text-slate-800">${metrics.monthlyExpenses.toLocaleString()}</p>
+            <h3 className="text-sm font-medium mb-1" style={{ color: Colors.neutral[600] }}>Monthly Expenses</h3>
+            <p className="text-2xl font-bold" style={{ color: Colors.neutral[800] }}>${metrics.monthlyExpenses.toLocaleString()}</p>
           </div>
 
           {/* Cash Flow */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-shadow" style={{ borderColor: Colors.neutral[200] }}>
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <WalletIcon className="h-6 w-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: Colors.primary[100] }}>
+                <WalletIcon className="h-6 w-6" style={{ color: Colors.primary[600] }} />
               </div>
-              <div className="flex items-center text-emerald-600">
+              <div className="flex items-center" style={{ color: Colors.success[600] }}>
                 <ArrowTrendingUpIcon className="h-4 w-4 mr-1" />
                 <span className="text-sm font-medium">+{metrics.cashFlowChange}%</span>
               </div>
             </div>
-            <h3 className="text-sm font-medium text-slate-600 mb-1">Cash Flow</h3>
-            <p className="text-2xl font-bold text-slate-800">${metrics.cashFlow.toLocaleString()}</p>
+            <h3 className="text-sm font-medium mb-1" style={{ color: Colors.neutral[600] }}>Cash Flow</h3>
+            <p className="text-2xl font-bold" style={{ color: Colors.neutral[800] }}>${metrics.cashFlow.toLocaleString()}</p>
           </div>
         </motion.div>
 
@@ -247,21 +269,25 @@ export default function Dashboard() {
             transition={{ delay: 0.3 }}
             className="lg:col-span-1"
           >
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-              <h2 className="text-lg font-semibold text-slate-800 mb-6">Quick Actions</h2>
+            <div className="bg-white rounded-2xl p-6 shadow-sm border" style={{ borderColor: Colors.neutral[200] }}>
+              <h2 className="text-lg font-semibold mb-6" style={{ color: Colors.neutral[800] }}>Quick Actions</h2>
               <div className="grid grid-cols-2 gap-4">
                 {quickActions.map((action: MockData['dashboard']['quickActions'][0]) => (
                   <button
                     key={action.id}
-                    className="flex flex-col items-center p-4 rounded-xl border-2 border-slate-100 hover:border-emerald-200 hover:bg-emerald-50 transition-all duration-200 group"
+                    className="flex flex-col items-center p-4 rounded-xl border-2 transition-all duration-200 group"
+                    style={{ 
+                      borderColor: Colors.neutral[100],
+                      '--tw-border-opacity': '1'
+                    } as React.CSSProperties}
                   >
                     <div 
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
                       style={{ backgroundColor: action.color }}
                     >
-                      <DocumentTextIcon className="h-6 w-6 text-white" />
+                      <DocumentTextIcon className="h-6 w-6" style={{ color: 'white' }} />
                     </div>
-                    <span className="text-sm font-medium text-slate-700 group-hover:text-emerald-700">
+                    <span className="text-sm font-medium group-hover:text-emerald-700" style={{ color: Colors.neutral[700] }}>
                       {action.title}
                     </span>
                   </button>
@@ -277,12 +303,13 @@ export default function Dashboard() {
             transition={{ delay: 0.4 }}
             className="lg:col-span-2"
           >
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border" style={{ borderColor: Colors.neutral[200] }}>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-semibold text-slate-800">Recent Activity</h2>
+                <h2 className="text-lg font-semibold" style={{ color: Colors.neutral[800] }}>Recent Activity</h2>
                 <Link
                   href="#"
-                  className="text-sm text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+                  className="text-sm font-medium flex items-center"
+                  style={{ color: Colors.primary[600] }}
                 >
                   View all
                   <ArrowRightIcon className="h-4 w-4 ml-1" />
@@ -292,19 +319,20 @@ export default function Dashboard() {
                 {recentActivity.map((activity: MockData['dashboard']['recentActivity'][0]) => (
                   <div
                     key={activity.id}
-                    className="flex items-center p-4 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors"
+                    className="flex items-center p-4 rounded-xl border transition-colors hover:bg-slate-50"
+                    style={{ borderColor: Colors.neutral[100] }}
                   >
                     <div 
                       className="w-10 h-10 rounded-lg flex items-center justify-center mr-4"
                       style={{ backgroundColor: activity.color }}
                     >
-                      <DocumentTextIcon className="h-5 w-5 text-white" />
+                      <DocumentTextIcon className="h-5 w-5" style={{ color: 'white' }} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-medium text-slate-800">{activity.title}</h3>
-                      <p className="text-sm text-slate-500">{activity.subtitle}</p>
+                      <h3 className="text-sm font-medium" style={{ color: Colors.neutral[800] }}>{activity.title}</h3>
+                      <p className="text-sm" style={{ color: Colors.neutral[500] }}>{activity.subtitle}</p>
                     </div>
-                    <div className="flex items-center text-slate-400">
+                    <div className="flex items-center" style={{ color: Colors.neutral[400] }}>
                       <ClockIcon className="h-4 w-4 mr-1" />
                       <span className="text-xs">2h ago</span>
                     </div>
@@ -324,14 +352,15 @@ export default function Dashboard() {
         >
           <Link
             href="/invoices"
-            className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            style={{ borderColor: Colors.neutral[200] }}
           >
-            <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
-              <DocumentDuplicateIcon className="h-6 w-6 text-orange-600" />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: Colors.warning[100] }}>
+              <DocumentDuplicateIcon className="h-6 w-6" style={{ color: Colors.warning[600] }} />
             </div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-2">Invoices</h3>
-            <p className="text-sm text-slate-600 mb-4">Manage your invoices and payments</p>
-            <div className="flex items-center text-orange-600 group-hover:text-orange-700">
+            <h3 className="text-lg font-semibold mb-2" style={{ color: Colors.neutral[800] }}>Invoices</h3>
+            <p className="text-sm mb-4" style={{ color: Colors.neutral[600] }}>Manage your invoices and payments</p>
+            <div className="flex items-center group-hover:text-orange-700" style={{ color: Colors.warning[600] }}>
               <span className="text-sm font-medium">View invoices</span>
               <ArrowRightIcon className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -339,14 +368,15 @@ export default function Dashboard() {
 
           <Link
             href="/expenses"
-            className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            style={{ borderColor: Colors.neutral[200] }}
           >
-            <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-              <ReceiptRefundIcon className="h-6 w-6 text-red-600" />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: Colors.danger[100] }}>
+              <ReceiptRefundIcon className="h-6 w-6" style={{ color: Colors.danger[600] }} />
             </div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-2">Expenses</h3>
-            <p className="text-sm text-slate-600 mb-4">Track and categorize expenses</p>
-            <div className="flex items-center text-red-600 group-hover:text-red-700">
+            <h3 className="text-lg font-semibold mb-2" style={{ color: Colors.neutral[800] }}>Expenses</h3>
+            <p className="text-sm mb-4" style={{ color: Colors.neutral[600] }}>Track and categorize expenses</p>
+            <div className="flex items-center group-hover:text-red-700" style={{ color: Colors.danger[600] }}>
               <span className="text-sm font-medium">View expenses</span>
               <ArrowRightIcon className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -354,14 +384,15 @@ export default function Dashboard() {
 
           <Link
             href="/wallet"
-            className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            style={{ borderColor: Colors.neutral[200] }}
           >
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-              <WalletIcon className="h-6 w-6 text-blue-600" />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: Colors.primary[100] }}>
+              <WalletIcon className="h-6 w-6" style={{ color: Colors.primary[600] }} />
             </div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-2">Wallet</h3>
-            <p className="text-sm text-slate-600 mb-4">Manage your accounts and transactions</p>
-            <div className="flex items-center text-blue-600 group-hover:text-blue-700">
+            <h3 className="text-lg font-semibold mb-2" style={{ color: Colors.neutral[800] }}>Wallet</h3>
+            <p className="text-sm mb-4" style={{ color: Colors.neutral[600] }}>Manage your accounts and transactions</p>
+            <div className="flex items-center group-hover:text-blue-700" style={{ color: Colors.primary[600] }}>
               <span className="text-sm font-medium">View wallet</span>
               <ArrowRightIcon className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -369,14 +400,15 @@ export default function Dashboard() {
 
           <Link
             href="/reports"
-            className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            className="bg-white rounded-2xl p-6 shadow-sm border hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+            style={{ borderColor: Colors.neutral[200] }}
           >
-            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-              <ChartBarIcon className="h-6 w-6 text-purple-600" />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: Colors.secondary[100] }}>
+              <ChartBarIcon className="h-6 w-6" style={{ color: Colors.secondary[600] }} />
             </div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-2">Reports</h3>
-            <p className="text-sm text-slate-600 mb-4">Generate financial reports and analytics</p>
-            <div className="flex items-center text-purple-600 group-hover:text-purple-700">
+            <h3 className="text-lg font-semibold mb-2" style={{ color: Colors.neutral[800] }}>Reports</h3>
+            <p className="text-sm mb-4" style={{ color: Colors.neutral[600] }}>Generate financial reports and analytics</p>
+            <div className="flex items-center group-hover:text-purple-700" style={{ color: Colors.secondary[600] }}>
               <span className="text-sm font-medium">View reports</span>
               <ArrowRightIcon className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </div>

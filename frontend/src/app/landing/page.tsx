@@ -23,6 +23,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Link from 'next/link';
+import { Colors } from '../../constants/colors';
 
 const signUpSchema = z.object({
   email: z.string().email('Please enter a valid email'),
@@ -37,42 +38,42 @@ const features = [
     icon: DocumentTextIcon,
     title: 'Smart Invoicing',
     description: 'Create, send, and track professional invoices with automated payment reminders.',
-    color: 'bg-blue-600',
+    color: Colors.primary[500],
     details: ['Automated payment reminders', 'Multi-currency support', 'Professional templates', 'Real-time tracking']
   },
   {
     icon: ChartBarIcon,
     title: 'Expense Tracking',
     description: 'Automatically categorize and track business expenses with receipt scanning.',
-    color: 'bg-emerald-600',
+    color: Colors.secondary[500],
     details: ['Receipt scanning', 'Automatic categorization', 'Expense reports', 'Tax preparation']
   },
   {
     icon: BanknotesIcon,
     title: 'Digital Wallets',
     description: 'Manage multiple business accounts and track cash flow in real-time.',
-    color: 'bg-amber-600',
+    color: Colors.accent[500],
     details: ['Multi-account management', 'Real-time cash flow', 'Budget tracking', 'Financial insights']
   },
   {
     icon: CreditCardIcon,
     title: 'Payment Processing',
     description: 'Accept payments globally with support for multiple currencies and payment methods.',
-    color: 'bg-purple-600',
+    color: Colors.primary[600],
     details: ['Global payment methods', 'Multi-currency support', 'Secure transactions', 'Instant settlements']
   },
   {
     icon: ShieldCheckIcon,
     title: 'Tax Reporting',
     description: 'Automated tax calculations and compliance reporting for multiple jurisdictions.',
-    color: 'bg-teal-600',
+    color: Colors.secondary[600],
     details: ['Automated calculations', 'Multi-jurisdiction support', 'Compliance reporting', 'Tax optimization']
   },
   {
     icon: GlobeAltIcon,
     title: 'Credit & Lending',
     description: 'Build business credit scores and access financing opportunities.',
-    color: 'bg-indigo-600',
+    color: Colors.accent[600],
     details: ['Credit score building', 'Lending opportunities', 'Financial partnerships', 'Growth financing']
   }
 ];
@@ -83,7 +84,8 @@ const platformFeatures = [
     title: 'Web Dashboard',
     description: 'Full-featured web application for desktop and tablet use',
     features: ['Advanced analytics', 'Bulk operations', 'Detailed reporting', 'Team collaboration'],
-    color: 'bg-blue-100 text-blue-600',
+    color: Colors.primary[100],
+    textColor: Colors.primary[600],
     url: '/landing/platforms'
   },
   {
@@ -91,7 +93,8 @@ const platformFeatures = [
     title: 'Mobile App',
     description: 'Native mobile app for iOS and Android',
     features: ['On-the-go access', 'Push notifications', 'Offline capabilities', 'Mobile payments'],
-    color: 'bg-purple-100 text-purple-600',
+    color: Colors.secondary[100],
+    textColor: Colors.secondary[600],
     url: '/landing/platforms'
   },
   {
@@ -99,7 +102,8 @@ const platformFeatures = [
     title: 'API Access',
     description: 'RESTful API for custom integrations',
     features: ['Developer-friendly', 'Webhook support', 'Real-time sync', 'Custom workflows'],
-    color: 'bg-green-100 text-green-600',
+    color: Colors.accent[100],
+    textColor: Colors.accent[600],
     url: '/landing/platforms'
   }
 ];
@@ -139,7 +143,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-600">
+    <div 
+      className="min-h-screen"
+      style={{ 
+        background: `linear-gradient(135deg, ${Colors.neutral[800]} 0%, ${Colors.neutral[700]} 50%, ${Colors.neutral[600]} 100%)` 
+      }}
+    >
       {/* Enhanced Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
@@ -156,47 +165,47 @@ export default function LandingPage() {
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center space-x-6">
                 <div className="relative group">
-                  <button className="flex items-center text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors group-hover:text-blue-400">
+                  <button className="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors" style={{ color: Colors.neutral[300] }}>
                     Products
                     <ChevronDownIcon className="ml-1 h-4 w-4" />
                   </button>
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style={{ borderColor: Colors.neutral[200] }}>
                     <div className="p-4 space-y-3">
-                      <Link href="/landing/invoicing" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        <DocumentTextIcon className="h-5 w-5 text-blue-600 mr-3" />
+                      <Link href="/landing/invoicing" className="flex items-center p-3 rounded-lg transition-colors hover:bg-gray-50">
+                        <DocumentTextIcon className="h-5 w-5 mr-3" style={{ color: Colors.primary[600] }} />
                         <div>
-                          <div className="font-medium text-gray-900">Invoicing</div>
-                          <div className="text-sm text-gray-500">Create and track invoices</div>
+                          <div className="font-medium" style={{ color: Colors.neutral[900] }}>Invoicing</div>
+                          <div className="text-sm" style={{ color: Colors.neutral[500] }}>Create and track invoices</div>
                         </div>
                       </Link>
-                      <Link href="/landing/expenses" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        <ChartBarIcon className="h-5 w-5 text-emerald-600 mr-3" />
+                      <Link href="/landing/expenses" className="flex items-center p-3 rounded-lg transition-colors hover:bg-gray-50">
+                        <ChartBarIcon className="h-5 w-5 mr-3" style={{ color: Colors.secondary[600] }} />
                         <div>
-                          <div className="font-medium text-gray-900">Expense Tracking</div>
-                          <div className="text-sm text-gray-500">Track and categorize expenses</div>
+                          <div className="font-medium" style={{ color: Colors.neutral[900] }}>Expense Tracking</div>
+                          <div className="text-sm" style={{ color: Colors.neutral[500] }}>Track and categorize expenses</div>
                         </div>
                       </Link>
-                      <Link href="/landing/payments" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                        <CreditCardIcon className="h-5 w-5 text-purple-600 mr-3" />
+                      <Link href="/landing/payments" className="flex items-center p-3 rounded-lg transition-colors hover:bg-gray-50">
+                        <CreditCardIcon className="h-5 w-5 mr-3" style={{ color: Colors.accent[600] }} />
                         <div>
-                          <div className="font-medium text-gray-900">Payments</div>
-                          <div className="text-sm text-gray-500">Process payments globally</div>
+                          <div className="font-medium" style={{ color: Colors.neutral[900] }}>Payments</div>
+                          <div className="text-sm" style={{ color: Colors.neutral[500] }}>Process payments globally</div>
                         </div>
                       </Link>
                     </div>
                   </div>
                 </div>
                 
-                <Link href="/landing/features" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-blue-400">
+                <Link href="/landing/features" className="px-3 py-2 rounded-md text-sm font-medium transition-colors" style={{ color: Colors.neutral[300] }}>
                   Features
                 </Link>
-                <Link href="/landing/platforms" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-blue-400">
+                <Link href="/landing/platforms" className="px-3 py-2 rounded-md text-sm font-medium transition-colors" style={{ color: Colors.neutral[300] }}>
                   Platforms
                 </Link>
-                <Link href="/landing/pricing" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-blue-400">
+                <Link href="/landing/pricing" className="px-3 py-2 rounded-md text-sm font-medium transition-colors" style={{ color: Colors.neutral[300] }}>
                   Pricing
                 </Link>
-                <Link href="/landing/testimonials" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-blue-400">
+                <Link href="/landing/testimonials" className="px-3 py-2 rounded-md text-sm font-medium transition-colors" style={{ color: Colors.neutral[300] }}>
                   Testimonials
                 </Link>
               </div>
@@ -206,7 +215,11 @@ export default function LandingPage() {
               {/* Desktop Sign In Button */}
               <Link 
                 href="/signin" 
-                className="hidden sm:inline-flex bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+                className="hidden sm:inline-flex px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+                style={{ 
+                  backgroundColor: Colors.secondary[500],
+                  color: 'white'
+                }}
               >
                 Sign In
               </Link>
@@ -315,11 +328,11 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight" style={{ color: 'white' }}>
                 The Financial Operating System for
-                <span className="text-blue-400"> Global SMBs</span>
+                <span style={{ color: Colors.primary[400] }}> Global SMBs</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed" style={{ color: Colors.neutral[300] }}>
                 Streamline your business finances with our comprehensive platform. From invoicing to lending, 
                 we provide everything SMBs need to thrive in emerging markets. Available on web, mobile, and API.
               </p>
@@ -332,7 +345,11 @@ export default function LandingPage() {
                       {...register('email')}
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm hover:border-gray-400 focus:border-blue-600"
+                      className="w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                      style={{ 
+                        borderColor: Colors.neutral[300],
+                        '--tw-ring-color': Colors.primary[600]
+                      } as React.CSSProperties}
                     />
                     {errors.email && (
                       <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
@@ -343,7 +360,11 @@ export default function LandingPage() {
                       {...register('businessName')}
                       type="text"
                       placeholder="Business name"
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm hover:border-gray-400 focus:border-blue-600"
+                      className="w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                      style={{ 
+                        borderColor: Colors.neutral[300],
+                        '--tw-ring-color': Colors.primary[600]
+                      } as React.CSSProperties}
                     />
                     {errors.businessName && (
                       <p className="text-red-600 text-sm mt-1">{errors.businessName.message}</p>
@@ -352,7 +373,11 @@ export default function LandingPage() {
                   <div>
                     <select
                       {...register('industry')}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm hover:border-gray-400 focus:border-blue-600"
+                      className="w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                      style={{ 
+                        borderColor: Colors.neutral[300],
+                        '--tw-ring-color': Colors.primary[600]
+                      } as React.CSSProperties}
                     >
                       <option value="">Select your industry</option>
                       <option value="technology">Technology</option>
@@ -369,7 +394,12 @@ export default function LandingPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="w-full font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    style={{ 
+                      backgroundColor: Colors.primary[500],
+                      color: 'white',
+                      '--tw-ring-color': Colors.primary[500]
+                    } as React.CSSProperties}
                   >
                     {isSubmitting ? 'Signing up...' : 'Start Free Trial'}
                     <ArrowRightIcon className="ml-2 h-5 w-5" />
@@ -410,9 +440,9 @@ export default function LandingPage() {
                 onMouseEnter={() => setHoveredFeature(index)}
                 onMouseLeave={() => setHoveredFeature(null)}
               >
-                <div className={`inline-flex p-4 rounded-xl ${feature.color} text-white mb-6 shadow-md transition-transform duration-200 ${
+                <div className={`inline-flex p-4 rounded-xl text-white mb-6 shadow-md transition-transform duration-200 ${
                   hoveredFeature === index ? 'scale-110' : ''
-                }`}>
+                }`} style={{ backgroundColor: feature.color }}>
                   <feature.icon className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
