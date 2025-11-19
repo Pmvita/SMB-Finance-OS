@@ -2,10 +2,67 @@
 
 > The Financial Operating System for Global Small and Medium Businesses
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-org/trident-financial-os)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Node.js](https://img.shields.io/badge/node.js-18+-green.svg)](https://nodejs.org/)
+<div align="center">
+
+![GitHub Repo stars](https://img.shields.io/github/stars/Pmvita/smb-finance-os?style=for-the-badge&logo=github&logoColor=white)
+![GitHub forks](https://img.shields.io/github/forks/Pmvita/smb-finance-os?style=for-the-badge&logo=github&logoColor=white)
+![GitHub issues](https://img.shields.io/github/issues/Pmvita/smb-finance-os?style=for-the-badge&logo=github&logoColor=white)
+![GitHub license](https://img.shields.io/github/license/Pmvita/smb-finance-os?style=for-the-badge&logo=github&logoColor=white)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Pmvita.smb-finance-os&left_color=blue&right_color=green)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Pmvita/smb-finance-os)
+
+</div>
+
+<div align="center">
+
+## 🚀 Development Status
+
+![Status](https://img.shields.io/badge/Status-In_Development-yellow?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+
+## 🌐 Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pierre-mvita/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://pierre-mvita.vercel.app/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Petermvita@hotmail.com)
+
+## 🐍 Backend Stack
+
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
+## 💻 Frontend Stack
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+## 📱 Mobile Stack
+
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+
+## 💾 Database & Infrastructure
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
+## 💳 Payment & FinTech
+
+![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
+![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
+
+## 🐳 DevOps & Deployment
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
+</div>
 
 ## 🌍 Mission
 
@@ -30,18 +87,26 @@ Trident Financial OS is designed to serve the financial needs of underserved sma
 
 ## 🏗️ Architecture
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │    Backend      │    │   Mobile App    │
-│   (Next.js)     │◄──►│   (Flask)       │◄──►│ (React Native)  │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         └───────────────────────┼───────────────────────┘
-                                 │
-                    ┌─────────────────┐
-                    │   PostgreSQL     │
-                    │   Database       │
-                    └─────────────────┘
+```mermaid
+flowchart TB
+    subgraph APPS["📱 Applications"]
+        Frontend["🌐 Frontend<br/>(Next.js)"]
+        Backend["🔧 Backend<br/>(Flask)"]
+        Mobile["📱 Mobile App<br/>(React Native)"]
+    end
+
+    subgraph DATA["💾 Data Layer"]
+        DB["🐘 PostgreSQL<br/>Database"]
+    end
+
+    Frontend <--> Backend
+    Backend <--> Mobile
+    Frontend --> DB
+    Backend --> DB
+    Mobile --> DB
+
+    style APPS fill:#E8F5E9,stroke:#4CAF50,color:#000
+    style DATA fill:#E3F2FD,stroke:#2196F3,color:#000
 ```
 
 ## 🚀 Quick Start
@@ -266,6 +331,18 @@ cd mobile-app && npm test
 - `GET/POST /payroll` - Payroll management
 
 
+## 📊 GitHub Stats
+
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Pmvita&repo=smb-finance-os&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00FF00&icon_color=00FF00)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Pmvita&repo=smb-finance-os&layout=compact&theme=dark&hide_border=true&bg_color=0D1117&title_color=00FF00)
+
+![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=Pmvita&repo=smb-finance-os&theme=dark&hide_border=true&background=0D1117&ring=00FF00&fire=00FF00&currStreakLabel=00FF00)
+
+</div>
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](/docs/contributing.md) for detailed information about our development workflow and contribution process.
@@ -289,9 +366,9 @@ For complete details, see our [Contributing Guide](/docs/contributing.md) and [A
 ## 🆘 Support
 
 - **Documentation**: [docs/](/docs/)
-- **Issues**: [GitHub Issues](https://github.com/your-org/trident-financial-os/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-org/trident-financial-os/discussions)
-- **Email**: support@tridentfinancialos.com
+- **Issues**: [GitHub Issues](https://github.com/Pmvita/smb-finance-os/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Pmvita/smb-finance-os/discussions)
+- **Email**: Petermvita@hotmail.com
 
 ## 🙏 Acknowledgments
 

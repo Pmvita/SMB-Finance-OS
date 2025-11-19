@@ -1,0 +1,38 @@
+name: Notify on Deploy
+
+on:
+  workflow_run:
+    workflows: ["Backend CI", "Frontend CI", "Mobile App CI/CD"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    name: Notify Team
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion != 'success' }}
+    
+    steps:
+      - name: Notify failure
+        run: |
+          echo "❌ Workflow ${{ github.event.workflow_run.name }} failed!"
+          echo "Check the workflow run: ${{ github.event.workflow_run.html_url }}"
+      
+      # Uncomment and configure if you want Slack/Discord notifications
+      # - name: Send Slack notification
+      #   uses: slackapi/slack-github-action@v1
+      #   with:
+      #     payload: |
+      #       {
+      #         "text": "Workflow ${{ github.event.workflow_run.name }} failed!",
+      #         "blocks": [{
+      #           "type": "section",
+      #           "text": {
+      #             "type": "mrkdwn",
+      #             "text": "❌ *Workflow Failed*\n*Workflow:* ${{ github.event.workflow_run.name }}\n*Branch:* ${{ github.event.workflow_run.head_branch }}\n*Commit:* ${{ github.event.workflow_run.head_commit.message }}\n<${GITHUB_URL}|View Run>"
+      #           }
+      #         }]
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
